@@ -1,0 +1,19 @@
+language: bash
+
+install:
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.63.2/hugo_0.63.2_Linux-64bit.deb
+  - sudo dpkg -i hugo*.deb
+
+script:
+  - hugo
+
+deploy:
+  provider: s3
+  skip-cleanup: true
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: thock.co
+  region: us-east-2
+  local-dir: public
+  on:
+    branch: master
