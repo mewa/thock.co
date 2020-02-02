@@ -1,0 +1,8 @@
+baseURL = "https://thock.co/"
+languageCode = "en-us"
+title = "thock.co"
+
+theme = "paper"
+
+[taxonomies]
+category = "categories"
