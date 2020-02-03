@@ -4,5 +4,7 @@ title = "thock.co"
 
 theme = "paper"
 
+googleAnalytics = "UA-157587596-1"
+
 [taxonomies]
 category = "categories"

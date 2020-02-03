@@ -5,7 +5,7 @@ install:
   - sudo dpkg -i hugo*.deb
 
 script:
-  - hugo
+  - HUGO_ENV=production hugo
 
 deploy:
   provider: s3
