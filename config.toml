@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "thock.co"
 
 theme = "paper"
+uglyURLs = true
 
 googleAnalytics = "UA-157587596-1"
 
