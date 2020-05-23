@@ -4,11 +4,10 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -51,5 +50,9 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+.thock {
+    font-weight: 100;
 }
 </style>
