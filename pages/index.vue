@@ -15,6 +15,7 @@
       <polygon fill="white" points="0,100 100,0 100,100"/>
     </svg>
   </header>
+
   <section class="intro my-5">
     <transition name="fade2" appear>
       <div class="container">
@@ -25,8 +26,54 @@
       </div>
     </transition>
   </section>
-  <section class="container details pt-5">
+
+  <section class="container my-5 pt-5">
     <img class="img-fluid" src="/conundrum.png" />
+  </section>
+
+  <section class="container details pt-5">
+    <div class="row col-12 justify-content-start text-left">
+      <h1 class="section-title display-4 mb-5 pb-3 w-100">Engineered to satisfy the most demanding typists</h1>
+    </div>
+
+    <div class="row mb-4">
+      <img class="col-5 my-4" src="/conundrum.png" />
+      <h3 class="col font-weight-lighter">Electro-capacitive switches with BKE Redux domes in various weights. Bound to make you thock.</h3>
+    </div>
+
+    <div class="row my-4">
+
+      <h3 class="col font-weight-lighter">Sturdy 4-piece construction weighing 1400g in total, resting on four rubber feet. For maximum grip.</h3>
+      <img class="col-5 my-4" src="/conundrum.png" />
+    </div>
+
+    <div class="row my-4">
+      <img class="col-5 my-4" src="/conundrum.png" />
+      <h3 class="col font-weight-lighter">Any layout you like. Fully programmable, based on the popular QMK firmware.</h3>
+    </div>
+
+  </section>
+
+  <section class="container details pt-5">
+    <div class="row col-12 justify-content-end text-right">
+      <h1 class="section-title display-4 mb-5 pb-3 w-100">Extraordinary looks, luxury at your fingertips</h1>
+    </div>
+
+    <div class="row my-4">
+      <img class="col-5 my-4" src="/conundrum.png" />
+      <h3 class="col font-weight-lighter">Tough electrophoretic coating, vibrant colors.</h3>
+    </div>
+
+    <div class="row my-4">
+      <h3 class="col font-weight-lighter">Heavy brass weight, mirror polished by hand and PVD coated for extreme durability.</h3>
+      <img class="col-5 my-4" src="/conundrum.png" />
+    </div>
+
+    <div class="row my-4">
+      <img class="col-5 my-4" src="/conundrum.png" />
+      <h3 class="col font-weight-lighter">Hand-polished to a luxurious mirror finish, PVD coated brass plate shining through your keycaps.</h3>
+    </div>
+
   </section>
 </div>
 </template>
@@ -137,6 +184,12 @@ header, {
   font-size: 2.4rem;
   word-spacing: 5px;
   /* padding-bottom: 15px; */
+}
+
+.details {
+    .row {
+        align-items: center;
+    }
 }
 
 html {
