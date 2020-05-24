@@ -2,28 +2,31 @@
 <div>
   <header>
     <transition name="fade" appear>
-    <div class="main container text-white">
+      <div class="main container text-white">
         <h1 class="title">
           Conundrum
         </h1>
         <h2 class="subtitle">
           a keyboard by <span class="thock">thock.co</span>
         </h2>
-    </div>
+      </div>
     </transition>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <svg class="bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
       <polygon fill="white" points="0,100 100,0 100,100"/>
     </svg>
   </header>
-  <section class="intro">
+  <section class="intro my-5">
     <transition name="fade2" appear>
-    <div class="container">
-      <h1 class="section-title display-4 w-100">Meet world's first 40% ortholinear, programmable, electro-capacitive keyboard</h1>
-      <div class="description col-lg-8 mx-auto mt-4">
-        Drawing its inspiration from Japanese technology and compact ortholinear keyboards, after two years of prototyping and development, the Conundrum keyboard is now here.
+      <div class="container">
+        <h1 class="section-title display-4 w-100">Meet world's first 40% ortholinear, programmable, electro-capacitive keyboard</h1>
+        <div class="col-lg-8 mx-auto mt-4">
+          Drawing its inspiration from Japanese technology and compact ortholinear keyboards, after two years of prototyping and development, the Conundrum keyboard is now here.
+        </div>
       </div>
-    </div>
     </transition>
+  </section>
+  <section class="container details pt-5">
+    <img class="img-fluid" src="/conundrum.png" />
   </section>
 </div>
 </template>
@@ -66,9 +69,23 @@ export default {
   opacity: 0;
 }
 
-svg {
+.rel {
+    position: relative;
+    width: 100%;
+    height: 0px;
+}
+
+svg.bottom {
     position: absolute;
-    bottom: 0vw;
+    bottom: 0;
+    width: 100%;
+    height: 6vw;
+  /* set height to pixels if you want angle to change with screen width */
+}
+
+svg.top {
+    position: absolute;
+    top: 0;
     width: 100%;
     height: 6vw;
   /* set height to pixels if you want angle to change with screen width */
@@ -78,7 +95,7 @@ svg {
     position: relative;
 }
 
-header {
+header, {
     position: relative;
     padding-bottom: 3vw;
     background: #ffb347;  /* fallback for old browsers */
@@ -86,14 +103,8 @@ header {
     background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.description {
-    /* margin: 0 auto; */
-    /* max-width: 768px; */
-}
-
 .container {
   margin: 0 auto;
-  min-height: 40vh;
   justify-content: center;
   align-items: center;
   text-align: center;
