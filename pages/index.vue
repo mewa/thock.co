@@ -80,6 +80,11 @@
 
 <script>
 export default {
+  head: {
+    script: [
+      { src: '/drift.js' }
+    ]
+  },
   data () {
     return {
       loaded: false
