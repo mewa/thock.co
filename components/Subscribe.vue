@@ -6,7 +6,7 @@
       id="email"
       class="mb-2 mr-sm-2 mb-sm-0"
       type="email"
-      placeholder="email@example.com"
+      placeholder="your@email.com"
       v-model="email"
       ></b-form-input>
     <b-button class="mx-auto" type="submit" variant="outline-dark" :disabled="waiting">Subscribe</b-button>
