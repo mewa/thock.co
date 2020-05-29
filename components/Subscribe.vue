@@ -9,7 +9,7 @@
       placeholder="email@example.com"
       v-model="email"
       ></b-form-input>
-    <b-button type="submit" variant="outline-dark" :disabled="waiting">Subscribe</b-button>
+    <b-button class="mx-auto" type="submit" variant="outline-dark" :disabled="waiting">Subscribe</b-button>
 </b-form>
   <span class="fade1" v-if="ok">Thank you for subscribing</span>
 </div>
