@@ -72,7 +72,7 @@
 
     <div class="row my-4">
       <b-col cols="12" sm="8">
-        <img class="img-fluid my-4" src="/img/details3.jpg" />
+        <img class="img-fluid my-4" src="/img/conundrum1.jpg" />
       </b-col>
       <b-col>
         <h3 class="font-weight-lighter">Any layout you like. Fully programmable, based on the popular QMK firmware.</h3>
