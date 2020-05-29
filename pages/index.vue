@@ -63,10 +63,10 @@
 
     <div class="row my-4">
       <b-col cols="12" sm="8">
-        <img class="img-fluid my-4" src="/img/conundrum3.jpg" />
+        <Carousel id="img-backs" fade class="img-fluid my-4" :images="['/img/back-white.jpg', '/img/back-black.jpg']" />
       </b-col>
       <b-col>
-        <h3 class="col font-weight-lighter">Sturdy 4-piece construction weighing 1400g in total, resting on four rubber feet. For maximum grip.</h3>
+        <h3 class="col font-weight-lighter">Sturdy 4-piece construction weighing roughly 1400g in total, resting on four rubber feet. For maximum grip.</h3>
       </b-col>
     </div>
 
@@ -75,29 +75,29 @@
         <img class="img-fluid my-4" src="/img/conundrum1.jpg" />
       </b-col>
       <b-col>
-        <h3 class="font-weight-lighter">Any layout you like. Fully programmable, based on the popular QMK firmware.</h3>
+        <h3 class="font-weight-lighter">Any layout you like. Fully programmable, based on the QMK firmware.</h3>
       </b-col>
     </div>
 
   </section>
 
   <section class="container details pt-5">
-    <div class="row col-12 justify-content-end text-right">
-      <h1 class="section-title display-4 mb-5 pb-3 w-100">Extraordinary looks, luxury at your fingertips</h1>
+    <div class="row col-12 justify-content-start text-left">
+      <h1 class="section-title display-4 mb-5 pb-3 w-100">Extraordinary looks, exceptional typing experience</h1>
     </div>
 
     <div class="row my-4">
       <b-col cols="12" sm="8">
-        <img class="img-fluid my-4" src="/img/details4.jpg" />
+        <Carousel id="img-colors" fade class="img-fluid my-4" :images="['/img/colors-1.jpg', '/img/colors-2.jpg', '/img/colors-3.jpg']" />
       </b-col>
       <b-col>
-        <h3 class="font-weight-lighter">Tough electrophoretic coating, vibrant colors.</h3>
+        <h3 class="font-weight-lighter">Captivating color depth.</h3>
       </b-col>
     </div>
 
     <div class="row my-4">
       <b-col cols="12" sm="8">
-        <img class="img-fluid my-4" src="/img/details5.jpg" />
+        <Carousel id="img-weights" fade class="img-fluid my-4" :images="['/img/weight-2.jpg', '/img/weight-1.jpg']" />
       </b-col>
       <b-col>
         <h3 class="font-weight-lighter">Heavy brass weight, mirror polished by hand and PVD coated for extreme durability.</h3>
@@ -112,7 +112,40 @@
         <h3 class="font-weight-lighter">Hand-polished to a luxurious mirror finish, PVD coated brass plate shining through your keycaps.</h3>
       </b-col>
     </div>
+
+
+    <div class="row my-4">
+      <b-col cols="12" sm="8">
+        <Carousel id="img-angle" fade class="img-fluid my-4" :images="['/img/angle-1.jpg', '/img/angle-2.jpg', '/img/angle-3.jpg']" />
+      </b-col>
+      <b-col>
+        <h3 class="font-weight-lighter">Gently angled case.</h3>
+      </b-col>
+    </div>
   </section>
+
+  <section class="container details pt-5">
+    <div class="row col-12 justify-content-start text-left">
+      <h1 class="section-title display-4 mb-5 pb-3 w-100">A handful of renders</h1>
+    </div>
+
+    <div class="row my-4">
+      <b-col cols="12" sm="8">
+        <Carousel id="img-renders" :interval="500" noanim class="img-fluid my-4" :images="rendered" />
+      </b-col>
+      <b-col>
+      </b-col>
+    </div>
+
+    <div class="row my-4">
+      <b-col cols="12" sm="8">
+        <img class="img-fluid my-4" src="/img/renders/back.jpg" />
+      </b-col>
+      <b-col>
+      </b-col>
+    </div>
+  </section>
+
 
   <section class="container details py-5">
     <transition name="fade2" appear>
@@ -134,6 +167,7 @@
 
 <script>
 import Subscribe from '~/components/Subscribe.vue'
+import Carousel from '~/components/Carousel.vue'
 
 export default {
   head: {
@@ -143,11 +177,50 @@ export default {
   },
   data () {
     return {
-      loaded: false
+      loaded: false,
+      rendered: [
+          '/img/renders/frame.0.png',
+          '/img/renders/frame.1.png',
+          '/img/renders/frame.2.png',
+          '/img/renders/frame.3.png',
+          '/img/renders/frame.4.png',
+          '/img/renders/frame.5.png',
+          '/img/renders/frame.6.png',
+          '/img/renders/frame.7.png',
+          '/img/renders/frame.8.png',
+          '/img/renders/frame.9.png',
+          '/img/renders/frame.10.png',
+          '/img/renders/frame.11.png',
+          '/img/renders/frame.12.png',
+          '/img/renders/frame.13.png',
+          '/img/renders/frame.14.png',
+          '/img/renders/frame.15.png',
+          '/img/renders/frame.16.png',
+          '/img/renders/frame.17.png',
+          '/img/renders/frame.18.png',
+          '/img/renders/frame.19.png',
+          '/img/renders/frame.20.png',
+          '/img/renders/frame.21.png',
+          '/img/renders/frame.22.png',
+          '/img/renders/frame.23.png',
+          '/img/renders/frame.24.png',
+          '/img/renders/frame.25.png',
+          '/img/renders/frame.26.png',
+          '/img/renders/frame.27.png',
+          '/img/renders/frame.28.png',
+          '/img/renders/frame.29.png',
+          '/img/renders/frame.30.png',
+          '/img/renders/frame.31.png',
+          '/img/renders/frame.32.png',
+          '/img/renders/frame.33.png',
+          '/img/renders/frame.34.png',
+          '/img/renders/frame.35.png',
+      ].reverse()
     }
   },
   components: {
-    Subscribe
+    Subscribe,
+    Carousel
   },
   methods: {
     onLoaded () {
