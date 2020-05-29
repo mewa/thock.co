@@ -73,12 +73,29 @@
       <img class="col-5 my-4" src="/conundrum.png" />
       <h3 class="col font-weight-lighter">Hand-polished to a luxurious mirror finish, PVD coated brass plate shining through your keycaps.</h3>
     </div>
+  </section>
 
+  <section class="container details py-5">
+    <transition name="fade2" appear>
+      <b-container fluid class="my-3">
+        <b-row>
+          <b-col>
+            <h3>Get notified when the group buy goes live</h3>
+          </b-col>
+        </b-row>
+      </b-container>
+    </transition>
+
+    <b-row align-h="center">
+        <Subscribe />
+    </b-row>
   </section>
 </div>
 </template>
 
 <script>
+import Subscribe from '~/components/Subscribe.vue'
+
 export default {
   head: {
     script: [
@@ -91,6 +108,7 @@ export default {
     }
   },
   components: {
+    Subscribe
   },
   methods: {
     onLoaded () {
