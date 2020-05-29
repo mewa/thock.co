@@ -28,7 +28,7 @@
   </section>
 
   <section class="container my-5 pt-5">
-    <img class="img-fluid" src="/conundrum.png" />
+    <img class="img-fluid" src="/img/conundrum.jpg" />
   </section>
 
   <section class="container details pt-5">
@@ -37,19 +37,30 @@
     </div>
 
     <div class="row mb-4">
-      <img class="col-5 my-4" src="/conundrum.png" />
-      <h3 class="col font-weight-lighter">Electro-capacitive switches with BKE Redux domes in various weights. Bound to make you thock.</h3>
+      <b-col cols="12" sm="8">
+        <img class="img-fluid my-4" src="/img/details1.jpg" />
+      </b-col>
+      <b-col>
+        <h3 class="font-weight-lighter">Electro-capacitive switches with BKE Redux domes in various weights. Bound to make you thock.</h3>
+      </b-col>
     </div>
 
     <div class="row my-4">
-
-      <h3 class="col font-weight-lighter">Sturdy 4-piece construction weighing 1400g in total, resting on four rubber feet. For maximum grip.</h3>
-      <img class="col-5 my-4" src="/conundrum.png" />
+      <b-col cols="12" sm="8">
+        <img class="img-fluid my-4" src="/img/conundrum3.jpg" />
+      </b-col>
+      <b-col>
+        <h3 class="col font-weight-lighter">Sturdy 4-piece construction weighing 1400g in total, resting on four rubber feet. For maximum grip.</h3>
+      </b-col>
     </div>
 
     <div class="row my-4">
-      <img class="col-5 my-4" src="/conundrum.png" />
-      <h3 class="col font-weight-lighter">Any layout you like. Fully programmable, based on the popular QMK firmware.</h3>
+      <b-col cols="12" sm="8">
+        <img class="img-fluid my-4" src="/img/details3.jpg" />
+      </b-col>
+      <b-col>
+        <h3 class="font-weight-lighter">Any layout you like. Fully programmable, based on the popular QMK firmware.</h3>
+      </b-col>
     </div>
 
   </section>
@@ -60,18 +71,30 @@
     </div>
 
     <div class="row my-4">
-      <img class="col-5 my-4" src="/conundrum.png" />
-      <h3 class="col font-weight-lighter">Tough electrophoretic coating, vibrant colors.</h3>
+      <b-col cols="12" sm="8">
+        <img class="img-fluid my-4" src="/img/details4.jpg" />
+      </b-col>
+      <b-col>
+        <h3 class="font-weight-lighter">Tough electrophoretic coating, vibrant colors.</h3>
+      </b-col>
     </div>
 
     <div class="row my-4">
-      <h3 class="col font-weight-lighter">Heavy brass weight, mirror polished by hand and PVD coated for extreme durability.</h3>
-      <img class="col-5 my-4" src="/conundrum.png" />
+      <b-col cols="12" sm="8">
+        <img class="img-fluid my-4" src="/img/details5.jpg" />
+      </b-col>
+      <b-col>
+        <h3 class="font-weight-lighter">Heavy brass weight, mirror polished by hand and PVD coated for extreme durability.</h3>
+      </b-col>
     </div>
 
     <div class="row my-4">
-      <img class="col-5 my-4" src="/conundrum.png" />
-      <h3 class="col font-weight-lighter">Hand-polished to a luxurious mirror finish, PVD coated brass plate shining through your keycaps.</h3>
+      <b-col cols="12" sm="8">
+        <img class="img-fluid my-4" src="/img/details6.jpg" />
+      </b-col>
+      <b-col>
+        <h3 class="font-weight-lighter">Hand-polished to a luxurious mirror finish, PVD coated brass plate shining through your keycaps.</h3>
+      </b-col>
     </div>
   </section>
 
