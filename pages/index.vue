@@ -30,6 +30,22 @@
   <section class="container my-5 pt-5">
     <img class="img-fluid" src="/img/conundrum.jpg" />
   </section>
+  
+  <section class="container details py-5">
+    <transition name="fade2" appear>
+      <b-container fluid class="my-3">
+        <b-row>
+          <b-col>
+            <h3>Get notified when the group buy goes live</h3>
+          </b-col>
+        </b-row>
+      </b-container>
+    </transition>
+    
+    <b-row align-h="center">
+      <Subscribe />
+    </b-row>
+  </section>
 
   <section class="container details pt-5">
     <div class="row col-12 justify-content-start text-left">
