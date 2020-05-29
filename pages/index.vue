@@ -28,7 +28,7 @@
   </section>
 
   <section class="container my-5 pt-5">
-    <img class="img-fluid" src="/img/conundrum.jpg" />
+    <img class="img-fluid" src="/img/conundrum-main.jpg" />
   </section>
   
   <section class="container details py-5">
@@ -54,7 +54,7 @@
 
     <div class="row mb-4">
       <b-col cols="12" sm="8">
-        <img class="img-fluid my-4" src="/img/details1.jpg" />
+        <img class="img-fluid my-4" src="/img/conundrum-1.jpg" />
       </b-col>
       <b-col>
         <h3 class="font-weight-lighter">Electro-capacitive switches with BKE Redux domes in various weights. Bound to make you thock.</h3>
@@ -72,7 +72,7 @@
 
     <div class="row my-4">
       <b-col cols="12" sm="8">
-        <img class="img-fluid my-4" src="/img/conundrum1.jpg" />
+        <img class="img-fluid my-4" src="/img/conundrum-2.jpg" />
       </b-col>
       <b-col>
         <h3 class="font-weight-lighter">Any layout you like. Fully programmable, based on the QMK firmware.</h3>
@@ -106,7 +106,7 @@
 
     <div class="row my-4">
       <b-col cols="12" sm="8">
-        <img class="img-fluid my-4" src="/img/details6.jpg" />
+        <img class="img-fluid my-4" src="/img/plate.jpg" />
       </b-col>
       <b-col>
         <h3 class="font-weight-lighter">Hand-polished to a luxurious mirror finish, PVD coated brass plate shining through your keycaps.</h3>
