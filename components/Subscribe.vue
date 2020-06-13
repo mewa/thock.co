@@ -25,7 +25,7 @@ export default {
       evt.preventDefault()
       try {
         this.waiting = true
-        await this.$axios.$put('https://lpaeuub0rh.execute-api.us-east-2.amazonaws.com/production/subscribe', { email: this.email })
+        await this.$axios.$put(process.env.API_URL + '/subscribe', { email: this.email })
         this.ok = true
       } finally {
           this.waiting = false;

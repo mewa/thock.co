@@ -1,5 +1,7 @@
-
 export default {
+  env: {
+      'API_URL': process.env.API_URL || (console.log('API_URL must be specified') + process.exit(1))
+  },
   mode: 'universal',
   /*
   ** Headers of the page
