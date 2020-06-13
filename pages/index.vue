@@ -57,7 +57,7 @@
         <img class="img-fluid my-4" src="/img/conundrum-1.jpg" />
       </b-col>
       <b-col>
-        <h3 class="font-weight-lighter">Electro-capacitive switches with BKE Redux domes in various weights. Bound to make you thock.</h3>
+        <h3 class="font-weight-lighter">Electro-capacitive switches with rubber domes in various weights. Bound to make you thock.</h3>
       </b-col>
     </div>
 
