@@ -22,10 +22,7 @@
         <img class="img-fluid" src="/img/conundrum-main.jpg" />
       </b-col>
       <b-col cols="12" lg="7" class="my-3">
-        <div class="d-sm-none position-fixed" style="height: 0px;" v-b-visible="handleVisible"/>
-        <b-tabs :vertical="!isXs" pills v-model="activeTab" @changed="tabsChanged" nav-class="text-danger">
-          <b-tab :active="index == activeTab" :title="(index+1).toString()" v-for="(variant, index) in variants" :title-link-class="tabClass(index)" :key="index">
-            <b-container class="mx-auto mt-3 mt-sm-0">
+            <b-container class="mx-auto mt-3 mt-sm-0" v-for="(variant, index) in variants" :key="index">
               <b-row>
                 <b-col>
                   <h4>Top piece:</h4>
@@ -121,22 +118,17 @@
               
               <b-row>
                 <b-col>
-                  <b-button variant="light-accent" @click="goToSummary">Reserve</b-button>
+                  <b-button variant="light-accent" @click="goToSummary">Buy</b-button>
                 </b-col>
               </b-row>
 
               <b-row v-if="errors.length > 0">
                 <b-col>
-                  <b-alert show v-for="error in errors" variant="danger">Please select all options in Conundrum #{{error+1}}.</b-alert>
+                  <b-alert show v-for="error in errors" :key="error" variant="danger">Please select all options.</b-alert>
                 </b-col>
               </b-row>
               
             </b-container>
-          </b-tab>
-          <template v-slot:tabs-end>
-            <b-nav-item v-if="variants.length < 9" link-classes="text-dark" role="presentation" @click.prevent="newTab" href="#">+</b-nav-item>
-          </template>
-        </b-tabs>
                 
       </b-col>
     </b-row>
