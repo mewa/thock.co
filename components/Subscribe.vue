@@ -24,17 +24,9 @@ export default {
     async onSubmit(evt) {
       evt.preventDefault()
       try {
-        gtag('event', 'subscribe_clicked', {
-          'event_category': 'Newsletter'
-        });
-
         this.waiting = true
         await this.$axios.$put(process.env.API_URL + '/subscribe', { email: this.email })
         this.ok = true
-
-        gtag('event', 'subscribed', {
-          'event_category': 'Newsletter'
-        });
       } finally {
           this.waiting = false;
       }
