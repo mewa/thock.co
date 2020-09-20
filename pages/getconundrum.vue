@@ -118,6 +118,38 @@
               
               <b-row>
                 <b-col>
+                  <h4>Cable:</h4>
+                </b-col>
+              </b-row>
+
+              <b-row>
+                <b-col cols="6">
+                  <b-form-group>
+                    <b-form-select
+                      id="cable"
+                      v-model="variant.cable"
+                      :options="cableVariants"
+                      buttons button-variant="outline-dark"/>
+                  </b-form-group>
+                </b-col>
+              </b-row>
+
+              <b-row>
+                <b-col>
+                  <b-form-checkbox
+                    id="assembly"
+                    v-model="variant.assembly"
+                    name="assembly"
+                    :value="true"
+                    :unchecked-value="false"
+                    >
+                    Include assembly service ($67)
+                  </b-form-checkbox>
+                </b-col>
+              </b-row>
+
+              <b-row class="mt-4">
+                <b-col>
                   <b-button variant="light-accent" @click="goToSummary">Buy</b-button>
                 </b-col>
               </b-row>
@@ -158,36 +190,39 @@ import Subscribe from '~/components/Subscribe.vue'
 import Carousel from '~/components/Carousel.vue'
 
 export default {
-  head: {
-    script: [
-//      { src: '/drift.js' }
-    ]
-  },
   data () {
     return {
       isXs: null,
       errors: [],
-      variants: this.$store.state.variants.map(o => Object.assign({}, o)),
+      variants: this.$store.state.variants.map(o => Object.assign({ cable: { text: "Standard, white" } }, o)),
       activeTab: 0,
       topVariants: [
-        { text: "Pure white", value: "white" },
-        { text: "Classy black", value: "black" },
-        { text: "Sunny yellow", value: "yellow" },
+        { text: "Pure white", value: "Pure white" },
+        { text: "Classy black", value: "Classy black" },
+        { text: "Sunny yellow", value: "Sunny yellow" },
       ],
       plateVariants: [
-        { text: "Gold PVD brass", value: "gold" },
+        { text: "Gold PVD brass", value: "Gold PVD brass" },
       ],
       bottomVariants: [
-        { text: "Pure white", value: "white" },
-        { text: "Classy black", value: "black" },
-        { text: "Sunny yellow", value: "yellow" },
+        { text: "Pure white", value: "Pure white" },
+        { text: "Classy black", value: "Classy black" },
+        { text: "Sunny yellow", value: "Sunny yellow" },
       ],
       weightVariants: [
-        { text: "Gold PVD brass", value: "gold" },
+        { text: "Gold PVD brass", value: "Gold PVD brass" },
       ],
       domeVariants: [
         { text: "35g", value: "35g" },
         { text: "45g", value: "45g" },
+        { text: "55g", value: "55g" },
+      ],
+      cableVariants: [
+        { text: "Standard, white", value: { text: "Standard, white" } },
+        { text: "Standard, black", value: { text: "Standard, black" } },
+        { text: "Craftcables, white ($23)", value: { text: "Craftcables, white", fancy: true } },
+        { text: "Craftcables, black ($23)", value: { text: "Craftcables, black", fancy: true } },
+        { text: "Craftcables, yellow ($23)", value: { text: "Craftcables, yellow", fancy: true } },
       ]
     }
   },
@@ -209,11 +244,11 @@ export default {
       for (let i = 0; i < this.variants.length; ++i) {
         let variant = this.variants[i];
 
-        if (!(variant.top && variant.bottom && variant.domes))
+        if (!(variant.top && variant.bottom && variant.domes && variant.cable))
           this.errors.push(i);
 
-        variant.plate = "gold";
-        variant.weight = "gold";
+        variant.plate = this.plateVariants[0].value;
+        variant.weight = this.weightVariants[0].value;
       }
 
       if (this.errors.length > 0)
