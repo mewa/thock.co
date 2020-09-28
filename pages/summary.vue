@@ -52,40 +52,40 @@
           <br v-if="!variant.cable.fancy"/>
           <span v-if="!variant.cable.fancy" class="ml-2">- {{ variant.cable.text }} USB-C cable</span>
         </b-td>
-        <b-td>{{ price | toCurrency }}</b-td>
+        <b-td>{{ price | toCurrency(currency) }}</b-td>
         <b-td>1</b-td>
         <b-td>{{ taxRate }}</b-td>
-        <b-td>{{ priceWithTax(price) | toCurrency }}</b-td>
+        <b-td>{{ priceWithTax(price) | toCurrency(currency) }}</b-td>
       </b-tr>
 
       <b-tr v-if="variant.cable && variant.cable.fancy">
         <b-td>
           {{ variant.cable.text }} USB-C cable
         </b-td>
-        <b-td>{{ this.cable | toCurrency }}</b-td>
+        <b-td>{{ cable | toCurrency(currency) }}</b-td>
         <b-td>1</b-td>
         <b-td>{{ taxRate }}</b-td>
-        <b-td>{{ priceWithTax(this.cable) | toCurrency }}</b-td>
+        <b-td>{{ priceWithTax(cable) | toCurrency(currency) }}</b-td>
       </b-tr>
 
       <b-tr v-if="variant.assembly">
         <b-td>
           Assembly service
         </b-td>
-        <b-td>{{ this.assembly | toCurrency }}</b-td>
+        <b-td>{{ assembly | toCurrency(currency) }}</b-td>
         <b-td>1</b-td>
         <b-td>{{ taxRate }}</b-td>
-        <b-td>{{ priceWithTax(this.assembly) | toCurrency }}</b-td>
+        <b-td>{{ priceWithTax(assembly) | toCurrency(currency) }}</b-td>
       </b-tr>
       
       <b-tr>
         <b-td>
           Express shipping
         </b-td>
-        <b-td>{{ shippingPrice() | toCurrency }}</b-td>
+        <b-td>{{ shippingPrice() | toCurrency(currency) }}</b-td>
         <b-td>1</b-td>
         <b-td>{{ taxRate }}</b-td>
-        <b-td>{{ priceWithTax(shippingPrice()) | toCurrency }}</b-td>
+        <b-td>{{ priceWithTax(shippingPrice()) | toCurrency(currency) }}</b-td>
       </b-tr>
 
       <b-tr>
@@ -94,7 +94,7 @@
         <b-td></b-td>
         <b-td></b-td>
         <b-td>Total:</b-td>
-        <b-td>{{ total | toCurrency }}</b-td>
+        <b-td>{{ total | toCurrency(currency) }}</b-td>
       </b-tr>
     </b-table-simple>
   </b-container>
@@ -102,7 +102,15 @@
   <b-container class="w-sm-75">
     <hr/>
     <b-row align-h="end" align-v="center">
-      <b-col></b-col>
+      <b-col cols="auto">
+        Pay in
+      </b-col>
+      <b-col cols="2">
+        <b-form-select variant="light-accent" v-model="currency">
+          <b-form-select-option key="USD" value="USD">USD</b-form-select-option>
+          <b-form-select-option key="EUR" value="EUR">EUR</b-form-select-option>
+        </b-form-select>
+      </b-col>
       <b-col cols="auto">
         Ship to
       </b-col>
@@ -158,6 +166,15 @@ export default {
       }
       return null;
     },
+    price() {
+      return this.prices[this.currency].kit;
+    },
+    assembly() {
+      return this.prices[this.currency].assembly;
+    },
+    cable() {
+      return this.prices[this.currency]['craftcables-cable'];
+    },
     total() {
       let price = this.priceWithTax(this.price);
       if (this.variant.assembly) {
@@ -174,17 +191,17 @@ export default {
   data () {
     return {
       nomad: false,
-      price: 547,
-      assembly: 67,
-      globalShipping: 15,
-      cable: 23,
+      prices: {},
+      currency: 'USD',
       variants: this.$store.state.variants,
       variant: this.$store.state.variants[0],
-      shipping: null,
+      shipping: { code: 'us', name: Countries.getName('us', "en") },
       countries: []
     }
   },
   async asyncData({ app }) {
+    let prices = app.$axios.$get(process.env.API_URL + '/prices');
+
     let countries = tntCountries.map(e => {
       let name = Countries.getName(e, "en");
       return { code: e, name };
@@ -198,7 +215,10 @@ export default {
         return 1;
       return 0;
     });
-    return { countries };
+
+    prices = await prices;
+    let shipping = { code: prices.defaultCountry.toLowerCase(), name: Countries.getName(prices.defaultCountry, "en") };
+    return { countries, prices: await prices, shipping, currency: prices.defaultCurrency };
   },
   methods: {
     setNomad(yes) {
@@ -226,9 +246,9 @@ export default {
         if (this.nomad) {
           return 'TBD';
         } else if (isEU(this.shipping)) {
-          return 0;
+          return this.prices[this.currency]['shipping-eu'];
         } else {
-          return this.globalShipping;
+          return this.prices[this.currency]['shipping-global'];
         }
       }
       return null;
