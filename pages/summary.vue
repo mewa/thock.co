@@ -128,7 +128,7 @@
       <b-col cols="1" />
 
       <b-col cols="auto">
-        <b-button variant="light-accent" :disabled="shipping == null && !nomad">Checkout</b-button>
+        <b-button variant="light-accent" :disabled="shipping == null && !nomad" @click="checkout">Checkout</b-button>
       </b-col>
     </b-row>
   </b-container>
@@ -223,9 +223,21 @@ export default {
     return { countries, prices: await prices, shipping, currency: prices.defaultCurrency };
   },
   methods: {
+    async checkout() {
+      let stripe = Stripe(process.env.STRIPE_KEY);
+
+      const item = {
+        variant: this.variant,
+        shipping: this.shipping.code,
+        currency: this.currency
+      };
+      let { sessionId } = await this.$axios.$post(process.env.API_URL + '/buy', item);
+
+      stripe.redirectToCheckout({ sessionId });
+    },
     setNomad(yes) {
       if (yes)
-        this.shipping = { code: 'NONE', name: 'Nomad', price: 'TBD' };
+        this.shipping = { code: 'NOMAD', name: 'Nomad', price: 'TBD' };
       else
         this.shipping = null;
     },
