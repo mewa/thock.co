@@ -243,7 +243,7 @@ export default {
     },
     priceWithTax(price) {
       if (this.shipping && isEU(this.shipping))
-        return price + price * tax;
+        return Math.round(price * (1 + tax));
       return price
     },
     selectShipping(country) {
