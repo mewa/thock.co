@@ -1,9 +1,10 @@
 export const state = () => ({
-  variants: [{}]
-})
+  variant: { cable: { text: "Standard, black" } }
+});
 
 export const mutations = {
-  setVariants(state, variants) {
-    state.variants = variants;
+  setVariant(state, variant) {
+    console.log('setVariant', variant);
+    state.variant = variant;
   }
 }

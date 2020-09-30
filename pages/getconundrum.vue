@@ -22,13 +22,10 @@
         <img class="img-fluid" src="/img/conundrum-main.jpg" />
       </b-col>
       <b-col cols="12" lg="7" class="my-3">
-            <b-container class="mx-auto mt-3 mt-sm-0" v-for="(variant, index) in variants" :key="index">
+            <b-container class="mx-auto mt-3 mt-sm-0">
               <b-row>
                 <b-col>
                   <h4>Top piece:</h4>
-                </b-col>
-                <b-col>
-                  <b-button-close v-if="variants.length > 1" @click="deleteTab" class="close"/>
                 </b-col>
               </b-row>
               
@@ -190,11 +187,11 @@ import Subscribe from '~/components/Subscribe.vue'
 import Carousel from '~/components/Carousel.vue'
 
 export default {
-  data () {
+  data() {
     return {
       isXs: null,
       errors: [],
-      variants: this.$store.state.variants.map(o => Object.assign({ cable: { text: "Standard, white" } }, o)),
+      variant: { ...this.$store.state.variant },
       activeTab: 0,
       topVariants: [
         { text: "Pure white", value: "Pure white" },
@@ -241,38 +238,19 @@ export default {
     },
     goToSummary() {
       this.errors = [];
-      for (let i = 0; i < this.variants.length; ++i) {
-        let variant = this.variants[i];
 
-        if (!(variant.top && variant.bottom && variant.domes && variant.cable))
-          this.errors.push(i);
+      if (!(this.variant.top && this.variant.bottom && this.variant.domes && this.variant.cable))
+        this.errors.push({});
 
-        variant.plate = this.plateVariants[0].value;
-        variant.weight = this.weightVariants[0].value;
-      }
+      this.variant.plate = this.plateVariants[0].value;
+      this.variant.weight = this.weightVariants[0].value;
 
       if (this.errors.length > 0)
         return;
 
-      this.$store.commit('setVariants', this.variants);
+      this.$store.commit('setVariant', this.variant);
       this.$router.push({ path: '/summary' });
     },
-    tabsChanged(curr, prev) {
-        if (curr.length > prev.length)
-            this.activeTab = curr.length - 1;
-    },
-    newTab() {
-      this.variants.push({});
-    },
-    deleteTab() {
-      this.variants.splice(this.activeTab, 1);
-    },
-    tabClass(index) {
-      if (this.activeTab === index)
-        return ['bg-dark', 'text-light']
-      else
-        return ['text-dark']
-    }
   }
 }
 </script>

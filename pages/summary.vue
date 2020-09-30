@@ -190,13 +190,12 @@ export default {
       return price;
     },
   },
-  data () {
+  data() {
     return {
       nomad: false,
       prices: {},
       currency: 'USD',
-      variants: this.$store.state.variants,
-      variant: this.$store.state.variants[0],
+      variant: this.$store.state.variant,
       shipping: { code: 'us', name: Countries.getName('us', "en") },
       countries: []
     }
