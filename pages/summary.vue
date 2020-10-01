@@ -192,15 +192,10 @@ export default {
   },
   data() {
     return {
-      nomad: false,
-      prices: {},
-      currency: 'USD',
-      variant: this.$store.state.variant,
-      shipping: { code: 'us', name: Countries.getName('us', "en") },
-      countries: []
-    }
+      variant: this.$store.state.variant
+    };
   },
-  async asyncData({ app }) {
+  async asyncData({ app, store, route }) {
     let prices = app.$axios.$get(process.env.API_URL + '/prices');
 
     let countries = tntCountries.map(e => {
@@ -218,8 +213,22 @@ export default {
     });
 
     prices = await prices;
+
+    let currency = prices.defaultCurrency;
     let shipping = { code: prices.defaultCountry.toLowerCase(), name: Countries.getName(prices.defaultCountry, "en") };
-    return { countries, prices: await prices, shipping, currency: prices.defaultCurrency };
+
+    if (process.browser && route.query.ts) {
+      let item = sessionStorage.getItem(route.query.ts);
+      console.log('ts', route.query, item);
+      item = JSON.parse(item);
+      currency = item.currency;
+      shipping = item.shipping;
+      store.commit('setVariant', item.variant);
+    }
+
+    let nomad = shipping.code == 'NOMAD';
+
+    return { nomad, countries, prices, shipping, currency };
   },
   methods: {
     async checkout() {
@@ -230,8 +239,9 @@ export default {
         shipping: this.shipping.code,
         currency: this.currency
       };
-      let { sessionId } = await this.$axios.$post(process.env.API_URL + '/buy', item);
+      let { sessionId, ts } = await this.$axios.$post(process.env.API_URL + '/buy', item);
 
+      sessionStorage.setItem(ts, JSON.stringify({ ...item, shipping: this.shipping }));
       stripe.redirectToCheckout({ sessionId });
     },
     setNomad(yes) {

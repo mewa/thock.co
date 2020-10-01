@@ -191,7 +191,7 @@ export default {
     return {
       isXs: null,
       errors: [],
-      variant: { ...this.$store.state.variant },
+      variant: { cable: { text: "Standard, black" }, ...this.$store.state.variant },
       activeTab: 0,
       topVariants: [
         { text: "Pure white", value: "Pure white" },

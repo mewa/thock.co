@@ -1,5 +1,5 @@
 export const state = () => ({
-  variant: { cable: { text: "Standard, black" } }
+  variant: null
 });
 
 export const mutations = {
