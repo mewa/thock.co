@@ -107,15 +107,15 @@
   
   <b-container fluid="md">
     <hr/>
-    <b-row align-h="end" align-v="center">
-      <b-col cols="auto">
-        Pay in
-      </b-col>
-      <b-col cols="2">
-        <b-form-select variant="light-accent" v-model="currency">
-          <b-form-select-option key="USD" value="USD">USD</b-form-select-option>
-          <b-form-select-option key="EUR" value="EUR">EUR</b-form-select-option>
-        </b-form-select>
+    <b-row align-h="end" align-v="center" no-gutters>
+      <b-col cols="2" sm="auto" class="mr-auto">
+        <b-form-radio-group
+          buttons
+          size="sm"
+          button-variant="outline-secondary"
+          v-model="currency"
+          :options="currencies">
+        </b-form-radio-group>
       </b-col>
       <b-col cols="auto" class="text-right mr-3">
         Ship to
@@ -211,7 +211,10 @@ export default {
   },
   data() {
     return {
-      variant: this.$store.state.variant
+      variant: this.$store.state.variant,
+      currencies: [
+        'USD', 'EUR'
+      ]
     };
   },
   async asyncData({ app, store, route }) {
