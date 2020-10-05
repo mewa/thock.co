@@ -5,5 +5,5 @@ Vue.filter('toCurrency', function (value, currency) {
     return value;
   }
 
-  return `${currency} ${(value / 100).toFixed(2).toLocaleString()}`;
+  return `${currency}\xa0${(value / 100).toFixed(2).toLocaleString()}`;
 });
