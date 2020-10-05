@@ -195,7 +195,7 @@ export default {
       activeTab: 0,
       topVariants: [
         { text: "Pure white", value: "Pure white" },
-        { text: "Classy black", value: "Classy black" },
+        { text: "Classic black", value: "Classic black" },
         { text: "Sunny yellow", value: "Sunny yellow" },
       ],
       plateVariants: [
@@ -203,7 +203,7 @@ export default {
       ],
       bottomVariants: [
         { text: "Pure white", value: "Pure white" },
-        { text: "Classy black", value: "Classy black" },
+        { text: "Classic black", value: "Classic black" },
         { text: "Sunny yellow", value: "Sunny yellow" },
       ],
       weightVariants: [
