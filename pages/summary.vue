@@ -25,17 +25,18 @@
       </div>
     </transition>
   </section>
-  
-  <b-container class="w-sm-75">
-    <b-table-simple>
+
+  <div class="mx-auto" style="max-width: 800px;">
+  <b-container fluid="md">
+    <b-table-simple small class="mb-0">
+      <b-thead>
       <b-tr>
-        <b-th>Item</b-th>
-        <b-th>Price</b-th>
-        <b-th>Quantity</b-th>
-        <b-th>Tax</b-th>
-        <b-th>Total</b-th>
+        <b-th class="w-100" style="border-top: 0px;">Item</b-th>
+        <b-th style="border-top: 0px;">Qty</b-th>
+        <b-th style="border-top: 0px;">Price</b-th>
       </b-tr>
-      
+      </b-thead>
+      <b-tbody>
       <b-tr>
         <b-td>
           Conundrum kit:
@@ -52,54 +53,59 @@
           <br v-if="!variant.cable.fancy"/>
           <span v-if="!variant.cable.fancy" class="ml-2">- {{ variant.cable.text }} USB-C cable</span>
         </b-td>
-        <b-td>{{ price | toCurrency(currency) }}</b-td>
-        <b-td>1</b-td>
-        <b-td>{{ taxRate }}</b-td>
-        <b-td>{{ priceWithTax(price) | toCurrency(currency) }}</b-td>
+        <b-td class="text-center">1</b-td>
+        <b-td class="text-right"><span>{{ price | toCurrency(currency) }}</span></b-td>
       </b-tr>
 
       <b-tr v-if="variant.cable && variant.cable.fancy">
         <b-td>
           {{ variant.cable.text }} USB-C cable
         </b-td>
-        <b-td>{{ cable | toCurrency(currency) }}</b-td>
-        <b-td>1</b-td>
-        <b-td>{{ taxRate }}</b-td>
-        <b-td>{{ priceWithTax(cable) | toCurrency(currency) }}</b-td>
+        <b-td class="text-center">1</b-td>
+        <b-td class="text-right">{{ cable | toCurrency(currency) }}</b-td>
       </b-tr>
 
       <b-tr v-if="variant.assembly">
         <b-td>
           Assembly service
         </b-td>
-        <b-td>{{ assembly | toCurrency(currency) }}</b-td>
-        <b-td>1</b-td>
-        <b-td>{{ taxRate }}</b-td>
-        <b-td>{{ priceWithTax(assembly) | toCurrency(currency) }}</b-td>
+        <b-td class="text-center">1</b-td>
+        <b-td class="text-right">{{ assembly | toCurrency(currency) }}</b-td>
       </b-tr>
       
       <b-tr>
         <b-td>
           Express shipping
         </b-td>
-        <b-td>{{ shippingPrice() | toCurrency(currency) }}</b-td>
-        <b-td>1</b-td>
-        <b-td>{{ taxRate }}</b-td>
-        <b-td>{{ priceWithTax(shippingPrice()) | toCurrency(currency) }}</b-td>
+        <b-td  class="text-center">1</b-td>
+        <b-td class="text-right" v-if="shippingPrice() != 0.0">{{ shippingPrice() | toCurrency(currency) }}</b-td>
+        <b-td class="text-right" v-if="shippingPrice() == 0.0">FREE</b-td>
+      </b-tr>
+      </b-tbody>
+    </b-table-simple>
+
+    <hr class="my-0"/>
+
+    <b-table-simple class="text-right" borderless small>
+      <b-tr>
+        <b-td class="w-100">Subtotal</b-td>
+        <b-td>{{ total | toCurrency(currency) }}</b-td>
       </b-tr>
 
       <b-tr>
-        <b-td>
-        </b-td>
-        <b-td></b-td>
-        <b-td></b-td>
-        <b-td>Total:</b-td>
-        <b-td>{{ total | toCurrency(currency) }}</b-td>
+        <b-td class="w-100">VAT {{ taxRate }}</b-td>
+        <b-td v-if="!nomad">{{ totalWithTax - total | toCurrency(currency) }}</b-td>
+        <b-td v-if="nomad">TBD</b-td>
+      </b-tr>
+
+      <b-tr class="font-weight-bold">
+        <b-td>Total</b-td>
+        <b-td>{{ totalWithTax | toCurrency(currency) }}</b-td>
       </b-tr>
     </b-table-simple>
   </b-container>
   
-  <b-container class="w-sm-75">
+  <b-container fluid="md">
     <hr/>
     <b-row align-h="end" align-v="center">
       <b-col cols="auto">
@@ -111,10 +117,10 @@
           <b-form-select-option key="EUR" value="EUR">EUR</b-form-select-option>
         </b-form-select>
       </b-col>
-      <b-col cols="auto">
+      <b-col cols="auto" class="text-right mr-3">
         Ship to
       </b-col>
-      <b-col cols="2">
+      <b-col cols="4" sm="4" class="mr-4">
         <b-form-select variant="light-accent" :disabled="nomad" v-model="shipping">
           <b-form-select-option v-for="country in countries" :key="country.code" :value="country">{{ country.name }}</b-form-select-option>
         </b-form-select>
@@ -132,6 +138,7 @@
       </b-col>
     </b-row>
   </b-container>
+  </div>
   
 </div>
 </template>
@@ -178,6 +185,18 @@ export default {
       return this.prices[this.currency]['craftcables-cable'];
     },
     total() {
+      let price = this.price;
+      if (this.variant.assembly) {
+        price += this.assembly;
+      }
+      if (this.variant.cable.fancy) {
+        price += this.cable;
+      }
+      if (this.shipping && this.shipping.code && !this.nomad)
+        price += this.shippingPrice()
+      return price;
+    },
+    totalWithTax() {
       let price = this.priceWithTax(this.price);
       if (this.variant.assembly) {
         price += this.priceWithTax(this.assembly);
