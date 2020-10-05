@@ -94,8 +94,7 @@
 
       <b-tr>
         <b-td class="w-100">VAT {{ taxRate }}</b-td>
-        <b-td v-if="!nomad">{{ totalWithTax - total | toCurrency(currency) }}</b-td>
-        <b-td v-if="nomad">TBD</b-td>
+        <b-td>{{ totalWithTax - total | toCurrency(currency) }}</b-td>
       </b-tr>
 
       <b-tr class="font-weight-bold">
@@ -121,20 +120,12 @@
         Ship to
       </b-col>
       <b-col cols="4" sm="4" class="mr-4">
-        <b-form-select variant="light-accent" :disabled="nomad" v-model="shipping">
+        <b-form-select variant="light-accent" v-model="shipping">
           <b-form-select-option v-for="country in countries" :key="country.code" :value="country">{{ country.name }}</b-form-select-option>
         </b-form-select>
       </b-col>
       <b-col cols="auto">
-        <b-form-checkbox v-model="nomad" name="is-nomad"
-                         v-b-tooltip.hover.top="'We will ask you to supply a shipping address when we\'re about to ship'"
-                         @change="setNomad">I'm a digital nomad</b-form-checkbox>
-      </b-col>
-
-      <b-col cols="1" />
-
-      <b-col cols="auto">
-        <b-button variant="light-accent" :disabled="shipping == null && !nomad" @click="checkout">Checkout</b-button>
+        <b-button variant="light-accent" :disabled="shipping == null" @click="checkout">Checkout</b-button>
       </b-col>
     </b-row>
   </b-container>
@@ -164,8 +155,6 @@ const isEU = (country) => {
 export default {
   computed: {
     taxRate() {
-      if (this.nomad)
-        return 'TBD';
       if (this.shipping) {
         if (isEU(this.shipping)) {
           return `${tax * 100}%`;
@@ -192,7 +181,7 @@ export default {
       if (this.variant.cable.fancy) {
         price += this.cable;
       }
-      if (this.shipping && this.shipping.code && !this.nomad)
+      if (this.shipping && this.shipping.code)
         price += this.shippingPrice()
       return price;
     },
@@ -204,7 +193,7 @@ export default {
       if (this.variant.cable.fancy) {
         price += this.priceWithTax(this.cable);
       }
-      if (this.shipping && this.shipping.code && !this.nomad)
+      if (this.shipping && this.shipping.code)
         price += this.priceWithTax(this.shippingPrice())
       return price;
     },
@@ -248,9 +237,7 @@ export default {
       store.commit('setVariant', item.variant);
     }
 
-    let nomad = shipping.code == 'NOMAD';
-
-    return { nomad, countries, prices, shipping, currency };
+    return { countries, prices, shipping, currency };
   },
   methods: {
     async checkout() {
@@ -265,12 +252,6 @@ export default {
 
       sessionStorage.setItem(ts, JSON.stringify({ ...item, shipping: this.shipping }));
       stripe.redirectToCheckout({ sessionId });
-    },
-    setNomad(yes) {
-      if (yes)
-        this.shipping = { code: 'NOMAD', name: 'Nomad', price: 'TBD' };
-      else
-        this.shipping = null;
     },
     priceWithTax(price) {
       if (this.shipping && isEU(this.shipping))
@@ -288,9 +269,7 @@ export default {
     },
     shippingPrice() {
       if (this.shipping) {
-        if (this.nomad) {
-          return 'TBD';
-        } else if (isEU(this.shipping)) {
+        if (isEU(this.shipping)) {
           return this.prices[this.currency]['shipping-eu'];
         } else {
           return this.prices[this.currency]['shipping-global'];
