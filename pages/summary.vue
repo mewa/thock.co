@@ -1,16 +1,8 @@
 <template>
 <div class="pb-5">
   <header>
-    <transition name="fade" appear>
-      <div class="main container text-white">
-        <h1 class="title">
-          Conundrum
-        </h1>
-        <h2 class="subtitle">
-          a keyboard by <span class="thock">thock.co</span>
-        </h2>
-      </div>
-    </transition>
+    <div style="height: 6vw;">
+    </div>
     <svg class="bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
       <polygon fill="white" points="0,100 100,0 100,100"/>
     </svg>
