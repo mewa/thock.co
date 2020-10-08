@@ -24,6 +24,7 @@
       <b-thead>
       <b-tr>
         <b-th class="w-100" style="border-top: 0px;">Item</b-th>
+        <b-th style="border-top: 0px;"></b-th>
         <b-th style="border-top: 0px;">Qty</b-th>
         <b-th style="border-top: 0px;">Price</b-th>
       </b-tr>
@@ -45,6 +46,7 @@
           <br v-if="!variant.cable.fancy"/>
           <span v-if="!variant.cable.fancy" class="ml-2">- {{ variant.cable.text }} USB-C cable</span>
         </b-td>
+        <b-td><n-link to="/getconundrum">Edit</n-link></b-td>
         <b-td class="text-center">1</b-td>
         <b-td class="text-right"><span>{{ price | toCurrency(currency) }}</span></b-td>
       </b-tr>
@@ -53,6 +55,7 @@
         <b-td>
           {{ variant.cable.text }} USB-C cable
         </b-td>
+        <b-td><n-link to="/getconundrum">Edit</n-link></b-td>
         <b-td class="text-center">1</b-td>
         <b-td class="text-right">{{ cable | toCurrency(currency) }}</b-td>
       </b-tr>
@@ -61,6 +64,7 @@
         <b-td>
           Assembly service
         </b-td>
+        <b-td><n-link to="/getconundrum">Edit</n-link></b-td>
         <b-td class="text-center">1</b-td>
         <b-td class="text-right">{{ assembly | toCurrency(currency) }}</b-td>
       </b-tr>
@@ -69,6 +73,7 @@
         <b-td>
           Express shipping
         </b-td>
+        <b-td/>
         <b-td  class="text-center">1</b-td>
         <b-td class="text-right" v-if="shippingPrice() != 0.0">{{ shippingPrice() | toCurrency(currency) }}</b-td>
         <b-td class="text-right" v-if="shippingPrice() == 0.0">FREE</b-td>
