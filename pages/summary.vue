@@ -135,6 +135,11 @@ import Carousel from '~/components/Carousel.vue'
 import Countries from "i18n-iso-countries";
 Countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 
+const CART = 'thock-cart';
+const saveCart = (item) => {
+  sessionStorage.setItem(CART, JSON.stringify(item));
+};
+
 const tax = 0.23;
 const specialCountries = ["fo", "ax", "gl"];
 const tntCountries = ["al", "ad", "at", "be", "by", "ba", "bg", "hr", "cy", "me", "cz", "dk", "ee", "fi", "fr", "gi", "gr", "es", "nl", "ie", "is", "xk", "li", "lt", "lu", "lv", "mk", "mt", "md", "mc", "de", "no", "pt", "ru", "ro", "sm", "rs", "sk", "si", "ch", "se", "tr", "ua", "hu", "gb", "it", "dz", "ai", "ag", "sa", "ar", "aw", "au", "bs", "bh", "bd", "bb", "bz", "bm", "bt", "bo", "br", "bn", "cl", "cn", "cw", "dm", "do", "eg", "ec", "ph", "gd", "gy", "gf", "gp", "gt", "ht", "hn", "hk", "in", "id", "il", "jm", "jp", "jo", "ky", "ca", "qa", "co", "kr", "cr", "kw", "la", "lb", "ly", "mo", "my", "ma", "mq", "mx", "mm", "ms", "np", "ni", "nz", "om", "pk", "ps", "pa", "py", "pe", "za", "pr", "bl", "kn", "lc", "mf", "pm", "vc", "sv", "sg", "sx", "lk", "us", "sr", "th", "tw", "tl", "tt", "tn", "uy", "ve", "vn", "vi", "vg", "tc", "ae", "pl"]
@@ -195,7 +200,8 @@ export default {
       variant: this.$store.state.variant,
       currencies: [
         'USD', 'EUR'
-      ]
+      ],
+      currency: 'USD'
     };
   },
   async asyncData({ app, store, route }) {
@@ -220,13 +226,26 @@ export default {
     let currency = prices.defaultCurrency;
     let shipping = { code: prices.defaultCountry.toLowerCase(), name: Countries.getName(prices.defaultCountry, "en") };
 
-    if (process.browser && route.query.ts) {
-      let item = sessionStorage.getItem(route.query.ts);
-      console.log('ts', route.query, item);
-      item = JSON.parse(item);
-      currency = item.currency;
-      shipping = item.shipping;
-      store.commit('setVariant', item.variant);
+    if (process.browser) {
+      let item = sessionStorage.getItem(CART);
+      if (item) {
+        item = JSON.parse(item);
+        currency = item.currency;
+        shipping = item.shipping;
+
+        if (!store.state.variant) {
+          store.commit('setVariant', item.variant);
+        }
+      }
+
+      if (store.state.variant) {
+        item = {
+          variant: store.state.variant,
+          shipping: shipping,
+          currency: currency
+        };
+        saveCart(item);
+      }
     }
 
     return { countries, prices, shipping, currency };
@@ -240,9 +259,7 @@ export default {
         shipping: this.shipping.code,
         currency: this.currency
       };
-      let { sessionId, ts } = await this.$axios.$post(process.env.API_URL + '/buy', item);
-
-      sessionStorage.setItem(ts, JSON.stringify({ ...item, shipping: this.shipping }));
+      let { sessionId } = await this.$axios.$post(process.env.API_URL + '/buy', item);
       stripe.redirectToCheckout({ sessionId });
     },
     priceWithTax(price) {
@@ -268,6 +285,22 @@ export default {
         }
       }
       return null;
+    },
+    saveVariant() {
+      const item = {
+        variant: this.variant,
+        shipping: this.shipping,
+        currency: this.currency
+      };
+      saveCart(item);
+    }
+  },
+  watch: {
+    currency() {
+      this.saveVariant();
+    },
+    shipping() {
+      this.saveVariant();
     }
   }
 }
