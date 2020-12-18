@@ -21,33 +21,33 @@
   <div class="mx-auto" style="max-width: 800px;">
   <b-container fluid="md">
       <p>
-          At <a href="/">thock.co</a> we care about your privacy. That's why we're never asking for more than what is needed to provide you with our products or share this information with external entities.
+          At <a class="text-dark-accent" href="/">thock.co</a> we care about your privacy. That's why we're never asking for more than what is needed to provide you with our products or share this information with external entities.
       </p>
 
 <h4>Who are we?</h4>
 <p>
-    The legal entity behind <a href="/">thock.co</a> is PMC Marcin Chmiel which is registered in Poland under the following address: os. Bolesława Chrobrego 6/25 60-681 Poznań, VAT Number PL9721290292.
+    The legal entity behind <a class="text-dark-accent" href="/">thock.co</a> is PMC Marcin Chmiel which is registered in Poland under the following address: os. Bolesława Chrobrego 6/25 60-681 Poznań, VAT Number PL9721290292.
 </p>
 
-<h4>How does <a href="/">thock.co</a> collect data about me?</h4>
+<h4>How does <a class="text-dark-accent" href="/">thock.co</a> collect data about me?</h4>
 <p>
-    <a href="/">thock.co</a> collects data about you:
+    <a class="text-dark-accent" href="/">thock.co</a> collects data about you:
     <ul>
-        <li>when you browse <a href="/">thock.co</a></li>
+        <li>when you browse <a class="text-dark-accent" href="/">thock.co</a></li>
         <li>when you submit an entry in our newsletter form</li>
     </ul>
 </p>
 
-<h4>What data does <a href="/">thock.co</a> collect about me, and why?</h4>
+<h4>What data does <a class="text-dark-accent" href="/">thock.co</a> collect about me, and why?</h4>
 <p>
-    <a href="/">thock.co</a> collects data about visits to our website
+    <a class="text-dark-accent" href="/">thock.co</a> collects data about visits to our website
 </p>
 
 <p>
-When you visit <a href="/">thock.co</a>, the site uses cookies, server logs or other methods to collect data about what pages you visit and when.
+When you visit <a class="text-dark-accent" href="/">thock.co</a>, the site uses cookies, server logs or other methods to collect data about what pages you visit and when.
 
 <p>
-    <a href="/">thock.co</a> uses this data to:
+    <a class="text-dark-accent" href="/">thock.co</a> uses this data to:
     <ul>
         <li>optimize our website so that it's quick and easy to use</li>
         <li>diagnose and troubleshoot technical errors</li>
@@ -62,11 +62,11 @@ When you visit <a href="/">thock.co</a>, the site uses cookies, server logs or o
 
 <p>
     Google Analytics – helps us measure traffic and usage trends.<br/>
-    Relevant privacy notice can be found at: <a href="https://www.google.com/analytics/terms" rel="nofollow">https://www.google.com/analytics/terms</a>
+    Relevant privacy notice can be found at: <a class="text-dark-accent" href="https://www.google.com/analytics/terms" rel="nofollow">https://www.google.com/analytics/terms</a>
 </p>
 <p>
     Amazon Web Services – provides cloud infrastructure and services neccessary for operating this website.<br/>
-    Relevant privacy notice can be found at: <a href="https://aws.amazon.com/privacy" rel="nofollow">https://aws.amazon.com/privacy</a>
+    Relevant privacy notice can be found at: <a class="text-dark-accent" href="https://aws.amazon.com/privacy" rel="nofollow">https://aws.amazon.com/privacy</a>
 </p>
   </b-container>
   </div>
