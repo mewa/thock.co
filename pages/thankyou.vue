@@ -35,6 +35,13 @@ const CART = 'thock-cart';
 export default {
   mounted() {
     sessionStorage.removeItem(CART);
+
+    try {
+      this.$ga.event({
+        eventCategory: 'GroupBuy',
+        eventAction: 'checkout_success'
+      });
+    } finally {}
   }
 }
 </script>

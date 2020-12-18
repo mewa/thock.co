@@ -269,8 +269,17 @@ export default {
         shipping: this.shipping.code,
         currency: this.currency
       };
-      let { sessionId } = await this.$axios.$post(process.env.API_URL + '/buy', item);
-      stripe.redirectToCheckout({ sessionId });
+      let buyPromise = this.$axios.$post(process.env.API_URL + '/buy', item);
+
+      try {
+        this.$ga.event({
+          eventCategory: 'GroupBuy',
+          eventAction: 'checkout'
+        });
+      } finally {
+        let { sessionId } = await buyPromise;
+        stripe.redirectToCheckout({ sessionId });
+      }
     },
     priceWithTax(price) {
       if (this.shipping && isEU(this.shipping))
