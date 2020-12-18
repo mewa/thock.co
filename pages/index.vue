@@ -55,7 +55,7 @@
 
     <div class="row mb-4">
       <b-col cols="12" sm="8">
-        <img class="img-fluid my-4" src="/img/conundrum-1.jpg" />
+        <Carousel id="img-sum" fade class="img-fluid my-4" :images="imagesSummary" />
       </b-col>
       <b-col>
         <h3 class="font-weight-lighter">Electro-capacitive switches with rubber domes in various weights. Bound to make you thock.</h3>
@@ -89,7 +89,7 @@
 
     <div class="row my-4">
       <b-col cols="12" sm="8">
-        <Carousel id="img-colors" fade class="img-fluid my-4" :images="['/img/colors-1.jpg', '/img/colors-2.jpg', '/img/colors-3.jpg']" />
+        <Carousel id="img-colors" fade class="img-fluid my-4" :images="['/img/colors-3.jpg', '/img/colors-2.jpg']" />
       </b-col>
       <b-col>
         <h3 class="font-weight-lighter">Captivating color depth.</h3>
@@ -181,6 +181,13 @@ export default {
       loaded: false,
       timer: null,
       deadline: new Date(2020, 12, 18, 11, 0, 0, 0),
+      imagesSummary: [
+        '/img/ck/sum/004.jpg',
+        '/img/ck/sum/001.jpg',
+        '/img/ck/sum/002.jpg',
+        '/img/ck/sum/006.jpg',
+        '/img/ck/sum/007.jpg'
+      ],
       rendered: [
           '/img/renders/frame.0.png',
           '/img/renders/frame.1.png',
