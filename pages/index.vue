@@ -21,7 +21,7 @@
       <div class="container">
         <h1 class="section-title display-4 w-100 text-center">Meet world's first 40% ortholinear, programmable, electro-capacitive keyboard</h1>
         <div class="col-lg-8 mx-auto mt-4">
-          Drawing its inspiration from Japanese technology and compact ortholinear keyboards, after two years of prototyping and development, the Conundrum keyboard is almost here.
+          Drawing its inspiration from Japanese technology and compact ortholinear keyboards, after two years of prototyping and development, the Conundrum keyboard is finally here.
         </div>
       </div>
     </transition>
@@ -36,15 +36,14 @@
       <b-container fluid class="my-3">
         <b-row>
           <b-col>
-            <h3 class="text-center" v-if="timer">Group Buy starts in {{ timer.hours }}h {{ timer.minutes }}m {{ timer.seconds}}s</h3>
-            <h3 class="text-center" v-if="!timer">The Group Buy is live!</h3>
+            <h3 class="text-center">The Group Buy is live!</h3>
           </b-col>
         </b-row>
       </b-container>
     </transition>
     
     <b-row align-h="center">
-        <b-button class="mx-auto" size="lg" variant="light-accent" :disabled="timer" :href="timer ? '' : '/getconundrum'">Buy now</b-button>
+        <b-button class="mx-auto" size="lg" variant="light-accent" to="/getconundrum">Buy now</b-button>
     </b-row>
   </section>
 
@@ -179,8 +178,6 @@ export default {
   data () {
     return {
       loaded: false,
-      timer: null,
-      deadline: new Date(2020, 12, 18, 11, 0, 0, 0),
       imagesSummary: [
         '/img/ck/sum/004.jpg',
         '/img/ck/sum/001.jpg',
@@ -232,32 +229,10 @@ export default {
     Subscribe,
     Carousel
   },
-  mounted() {
-    setTimeout(this.countdown, 1);
-  },
   methods: {
     onLoaded () {
       this.loaded = true
     },
-    countdown () {
-      let t = Date.parse(this.deadline) - Date.parse(new Date());
-      let seconds = Math.floor((t / 1000) % 60);
-      let minutes = Math.floor((t / 1000 / 60) % 60);
-      let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-      let days = Math.floor(t / (1000 * 60 * 60 * 24));
-      if (t > 0) {
-        this.timer = {
-          total: t,
-          days: days,
-          hours: hours,
-          minutes: minutes,
-          seconds: seconds
-        };
-        setTimeout(this.countdown, 250);
-      } else {
-        this.timer = null;
-      }
-    }
   }
 }
 </script>
