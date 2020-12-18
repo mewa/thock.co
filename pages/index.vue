@@ -36,14 +36,15 @@
       <b-container fluid class="my-3">
         <b-row>
           <b-col>
-            <h3 class="text-center">Get notified when the group buy goes live</h3>
+            <h3 class="text-center" v-if="timer">Group Buy starts in {{ timer.hours }}h {{ timer.minutes }}m {{ timer.seconds}}s</h3>
+            <h3 class="text-center" v-if="!timer">The Group Buy is live!</h3>
           </b-col>
         </b-row>
       </b-container>
     </transition>
     
     <b-row align-h="center">
-      <Subscribe />
+        <b-button class="mx-auto" size="lg" variant="light-accent" :disabled="timer" :href="timer ? '' : '/getconundrum'">Buy now</b-button>
     </b-row>
   </section>
 
@@ -152,7 +153,7 @@
       <b-container fluid class="my-3">
         <b-row>
           <b-col>
-            <h3 class="text-center">Get notified when the group buy goes live</h3>
+            <h3 class="text-center">Get updates and group buy notifications</h3>
           </b-col>
         </b-row>
       </b-container>
@@ -178,6 +179,8 @@ export default {
   data () {
     return {
       loaded: false,
+      timer: null,
+      deadline: new Date(2020, 12, 18, 11, 0, 0, 0),
       rendered: [
           '/img/renders/frame.0.png',
           '/img/renders/frame.1.png',
@@ -222,9 +225,31 @@ export default {
     Subscribe,
     Carousel
   },
+  mounted() {
+    setTimeout(this.countdown, 1);
+  },
   methods: {
     onLoaded () {
       this.loaded = true
+    },
+    countdown () {
+      let t = Date.parse(this.deadline) - Date.parse(new Date());
+      let seconds = Math.floor((t / 1000) % 60);
+      let minutes = Math.floor((t / 1000 / 60) % 60);
+      let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+      let days = Math.floor(t / (1000 * 60 * 60 * 24));
+      if (t > 0) {
+        this.timer = {
+          total: t,
+          days: days,
+          hours: hours,
+          minutes: minutes,
+          seconds: seconds
+        };
+        setTimeout(this.countdown, 250);
+      } else {
+        this.timer = null;
+      }
     }
   }
 }
