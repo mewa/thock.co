@@ -177,6 +177,7 @@ export default {
     },
     total() {
       let price = this.price;
+
       if (this.variant.assembly) {
         price += this.assembly;
       }
@@ -189,6 +190,7 @@ export default {
     },
     totalWithTax() {
       let price = this.priceWithTax(this.price);
+
       if (this.variant.assembly) {
         price += this.priceWithTax(this.assembly);
       }
