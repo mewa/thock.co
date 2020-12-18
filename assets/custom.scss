@@ -1,0 +1,91 @@
+$brand: #59555F;
+$light-accent: #FFB347;
+$dark-accent: #A94053;
+
+// $primary:       $brand;
+// $success:       #60aa6a;
+// $info:          #343242;
+// $warning:       #dd9a32;
+// $danger:        #f44336;
+// $light:         #f4f6f6;
+// $dark:          #343242;
+
+$theme-colors: (
+    "light-accent":      $light-accent,
+    "dark-accent":       $dark-accent
+);
+
+// bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap';
+
+@include media-breakpoint-down(xs) {
+  html {
+    font-size: 0.65rem;
+  }
+}
+
+/* custom */
+
+/* anims */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1.5s ease-in-out;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+/* header */
+header {
+    position: relative;
+    padding-bottom: 3vw;
+    background: #ffb347;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+svg.bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 6vw;
+  /* set height to pixels if you want angle to change with screen width */
+}
+
+svg.top {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 6vw;
+  /* set height to pixels if you want angle to change with screen width */
+}
+
+/* content */
+.title {
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  display: block;
+  font-weight: 300;
+  font-size: 6rem;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  margin-top: -24px;
+  opacity: 0.7;
+  font-weight: 100;
+  font-size: 2.4rem;
+  word-spacing: 5px;
+  /* padding-bottom: 15px; */
+}
+
+.main {
+  margin: 0 auto;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

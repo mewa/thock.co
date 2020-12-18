@@ -1,6 +1,11 @@
 <template>
   <div>
     <nuxt />
+    <footer class="d-flex small justify-content-center py-5 text-secondary" style="opacity: 60%;">
+      <span class="mx-3">Conundrum keyboard & <a class="text-dark-accent" href="https://thock.co">thock.co</a> are trademarks of PMC Marcin Chmiel &copy; 2020</span>
+      <a class="mx-3 text-dark-accent" href="mailto:marcin@thock.co">Contact</a>
+      <a class="mx-3 text-dark-accent" href="/privacy">Privacy</a>
+    </footer>
   </div>
 </template>
 

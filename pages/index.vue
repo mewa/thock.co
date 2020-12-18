@@ -19,9 +19,9 @@
   <section class="intro my-5">
     <transition name="fade2" appear>
       <div class="container">
-        <h1 class="section-title display-4 w-100">Meet world's first 40% ortholinear, programmable, electro-capacitive keyboard</h1>
+        <h1 class="section-title display-4 w-100 text-center">Meet world's first 40% ortholinear, programmable, electro-capacitive keyboard</h1>
         <div class="col-lg-8 mx-auto mt-4">
-          Drawing its inspiration from Japanese technology and compact ortholinear keyboards, after two years of prototyping and development, the Conundrum keyboard is almost here.
+          Drawing its inspiration from Japanese technology and compact ortholinear keyboards, after two years of prototyping and development, the Conundrum keyboard is finally here.
         </div>
       </div>
     </transition>
@@ -36,14 +36,14 @@
       <b-container fluid class="my-3">
         <b-row>
           <b-col>
-            <h3>Get notified when the group buy goes live</h3>
+            <h3 class="text-center">The Group Buy is live!</h3>
           </b-col>
         </b-row>
       </b-container>
     </transition>
     
     <b-row align-h="center">
-      <Subscribe />
+        <b-button class="mx-auto" size="lg" variant="light-accent" to="/getconundrum">Buy now</b-button>
     </b-row>
   </section>
 
@@ -54,7 +54,7 @@
 
     <div class="row mb-4">
       <b-col cols="12" sm="8">
-        <img class="img-fluid my-4" src="/img/conundrum-1.jpg" />
+        <Carousel id="img-sum" fade class="img-fluid my-4" :images="imagesSummary" />
       </b-col>
       <b-col>
         <h3 class="font-weight-lighter">Electro-capacitive switches with rubber domes in various weights. Bound to make you thock.</h3>
@@ -88,7 +88,7 @@
 
     <div class="row my-4">
       <b-col cols="12" sm="8">
-        <Carousel id="img-colors" fade class="img-fluid my-4" :images="['/img/colors-1.jpg', '/img/colors-2.jpg', '/img/colors-3.jpg']" />
+        <Carousel id="img-colors" fade class="img-fluid my-4" :images="['/img/colors-3.jpg', '/img/colors-2.jpg']" />
       </b-col>
       <b-col>
         <h3 class="font-weight-lighter">Captivating color depth.</h3>
@@ -152,7 +152,7 @@
       <b-container fluid class="my-3">
         <b-row>
           <b-col>
-            <h3>Get notified when the group buy goes live</h3>
+            <h3 class="text-center">Get updates and group buy notifications</h3>
           </b-col>
         </b-row>
       </b-container>
@@ -178,6 +178,13 @@ export default {
   data () {
     return {
       loaded: false,
+      imagesSummary: [
+        '/img/ck/sum/004.jpg',
+        '/img/ck/sum/001.jpg',
+        '/img/ck/sum/002.jpg',
+        '/img/ck/sum/006.jpg',
+        '/img/ck/sum/007.jpg'
+      ],
       rendered: [
           '/img/renders/frame.0.png',
           '/img/renders/frame.1.png',
@@ -225,23 +232,12 @@ export default {
   methods: {
     onLoaded () {
       this.loaded = true
-    }
+    },
   }
 }
 </script>
 
 <style lang="scss">
-  @import '~bootstrap/scss/bootstrap.scss';
-  @import '~bootstrap-vue/src/index.scss';
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 1.5s ease-in-out;
-}
-
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-}
-
 .fade2-enter-active, .fade2-leave-active {
   transition: opacity 3s ease-in-out;
   transition-delay: 0.5s;
@@ -251,105 +247,13 @@ export default {
   opacity: 0;
 }
 
-.rel {
-    position: relative;
-    width: 100%;
-    height: 0px;
-}
-
-svg.bottom {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 6vw;
-  /* set height to pixels if you want angle to change with screen width */
-}
-
-svg.top {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 6vw;
-  /* set height to pixels if you want angle to change with screen width */
-}
-
 .section-title {
     position: relative;
-}
-
-header, {
-    position: relative;
-    padding-bottom: 3vw;
-    background: #ffb347;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.container {
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.main {
-  margin: 0 auto;
-  min-height: 40vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 6rem;
-  color: rgba(255, 255, 255, 0.85);
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  margin-top: -24px;
-  opacity: 0.7;
-  font-weight: 100;
-  font-size: 2.4rem;
-  word-spacing: 5px;
-  /* padding-bottom: 15px; */
 }
 
 .details {
     .row {
         align-items: center;
     }
-}
-
-html {
-  font-size: 0.65em;
-}
-
-@include media-breakpoint-up(sm) {
-  html {
-    font-size: 0.7rem;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  html {
-    font-size: 0.8rem;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  html {
-    font-size: 1rem;
-  }
-}
-
-.links {
-  padding-top: 15px;
 }
 </style>
