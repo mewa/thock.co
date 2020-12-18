@@ -210,7 +210,6 @@ export default {
         { text: "Gold PVD brass", value: "Gold PVD brass" },
       ],
       domeVariants: [
-        { text: "35g", value: "35g" },
         { text: "45g", value: "45g" },
         { text: "55g", value: "55g" },
       ],
