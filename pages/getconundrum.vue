@@ -191,7 +191,7 @@ export default {
     return {
       isXs: null,
       errors: [],
-      variant: { cable: { text: "Standard, white" }, ...this.$store.state.variant },
+      variant: { cable: { text: "White" }, ...this.$store.state.variant },
       activeTab: 0,
       topVariants: [
         { text: "Pure white", value: "Pure white" },
@@ -215,11 +215,8 @@ export default {
         { text: "55g", value: "55g" },
       ],
       cableVariants: [
-        { text: "Standard, white", value: { text: "Standard, white" } },
-        { text: "Standard, black", value: { text: "Standard, black" } },
-        { text: "Craftcables, white ($23)", value: { text: "Craftcables, white", fancy: true } },
-        { text: "Craftcables, black ($23)", value: { text: "Craftcables, black", fancy: true } },
-        { text: "Craftcables, yellow ($23)", value: { text: "Craftcables, yellow", fancy: true } },
+        { text: "White", value: { text: "White" } },
+        { text: "Black", value: { text: "Black" } },
       ]
     }
   },
