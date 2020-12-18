@@ -197,6 +197,11 @@ import Subscribe from '~/components/Subscribe.vue'
 import Carousel from '~/components/Carousel.vue'
 
 export default {
+  head: {
+    script: [
+      { src: '/drift.js' }
+    ]
+  },
   data() {
     return {
       isXs: null,
