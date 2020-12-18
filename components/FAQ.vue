@@ -10,6 +10,14 @@
   <p><strong>A:</strong> Both grid and MIT layouts are supported. The plate has a 2u cutout that can accomodate either a single 2u switch or two 1u switches.</p>
   <hr/>
 
+  <p><em><strong>Q:</strong> When does the Group Buy start?</em></p>
+  <p><strong>A:</strong> The Group Buy starts on December 18th 2020.</p>
+  <hr/>
+
+  <p><em><strong>Q:</strong> When does the Group Buy end?</em></p>
+  <p><strong>A:</strong> We will continue to collect orders for the group buy until January 18th 2021.</p>
+  <hr/>
+
   <p><em><strong>Q:</strong> What is the expected date of shipment?</em></p>
   <p><strong>A:</strong> Q3 2021 &ndash; or sooner if the schedule allows.</p>
   <hr/>
@@ -22,7 +30,5 @@
   <p><strong>A:</strong> No, keycaps are not included.</p>
   <hr/>
 
-  <p><em><strong>Q:</strong> Why is it so expensive?</em></p>
-  <p><strong>A:</strong> This is the first keyboard to provide a fully custom, programmable, electro-capacitive experience. Bringing this keyboard to life required years of research, prototyping and firmware development. Setting up a whole new branch of keyboards requires significant investments. In order to enable future EC projects, profits from this Group Buy are going to fund these investments.</p>
 </div>
 </template>
