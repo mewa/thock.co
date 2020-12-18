@@ -209,7 +209,7 @@ export default {
       currency: 'USD'
     };
   },
-  async asyncData({ app, store, route }) {
+  async asyncData({ app, store, redirect }) {
     let prices = app.$axios.$get(process.env.API_URL + '/prices');
 
     let countries = tntCountries.map(e => {
@@ -251,6 +251,9 @@ export default {
         };
         saveCart(item);
       }
+
+      if (!item)
+        redirect({ name: 'getconundrum' });
     }
 
     return { countries, prices, shipping, currency };
