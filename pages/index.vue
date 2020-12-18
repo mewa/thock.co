@@ -19,7 +19,7 @@
   <section class="intro my-5">
     <transition name="fade2" appear>
       <div class="container">
-        <h1 class="section-title display-4 w-100">Meet world's first 40% ortholinear, programmable, electro-capacitive keyboard</h1>
+        <h1 class="section-title display-4 w-100 text-center">Meet world's first 40% ortholinear, programmable, electro-capacitive keyboard</h1>
         <div class="col-lg-8 mx-auto mt-4">
           Drawing its inspiration from Japanese technology and compact ortholinear keyboards, after two years of prototyping and development, the Conundrum keyboard is almost here.
         </div>
