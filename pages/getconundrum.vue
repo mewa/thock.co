@@ -161,12 +161,22 @@
                 
       </b-col>
     </b-row>
-    
+
     <b-row>
       <b-col>
         <Features/>
       </b-col>
     </b-row>
+
+    <b-row>
+      <b-col>
+        <Carousel id="img-sum" fade class="img-fluid my-4" :images="images" />
+      </b-col>
+    </b-row>
+
+    <p>
+        <em>Note: the pictures presented here reflect the state of the second revision prototype of the Conundrum at the time of the Group Buy. The final product may differ slightly to allow for necessary tweaks.</em>
+    </p>
 
     <hr/>
 
@@ -191,6 +201,15 @@ export default {
     return {
       isXs: null,
       errors: [],
+      images: [
+        '/img/ck/sum/001.jpg',
+        '/img/ck/sum/002.jpg',
+        '/img/ck/sum/003.jpg',
+        '/img/ck/sum/004.jpg',
+        '/img/ck/sum/005.jpg',
+        '/img/ck/sum/006.jpg',
+        '/img/ck/sum/007.jpg'
+      ],
       variant: { cable: { text: "White" }, ...this.$store.state.variant },
       activeTab: 0,
       topVariants: [
