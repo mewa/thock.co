@@ -174,13 +174,7 @@
       </b-col>
     </b-row>
 
-    <p>
-        <em>Note: the pictures presented here reflect the state of the second revision prototype of the Conundrum at the time of the Group Buy. The final product may differ slightly to allow for necessary tweaks.</em>
-    </p>
-
-    <hr/>
-
-    <b-row>
+    <b-row class="mt-3">
       <b-col>
         <FAQ/>
       </b-col>

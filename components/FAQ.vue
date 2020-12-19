@@ -30,5 +30,17 @@
   <p><strong>A:</strong> No, keycaps are not included.</p>
   <hr/>
 
+  <p><em><strong>Q:</strong> Are you shipping worldwide?</em></p>
+  <p><strong>A:</strong> Yes, we ship to most countries in the world. If you can't find your country on the list or need assistance please <a class="text-dark-accent" href="mailto:marcin@thock.co">contact us</a> via email or using the chat button in the corner.</p>
+  <hr/>
+
+  <p><em><strong>Q:</strong> Can I buy the Conundrum from a regional vendor?</em></p>
+  <p><strong>A:</strong> Yes, we have partnered with several vendors.</p>
+
+  <ul>
+    <li>Europe &ndash; <a class="text-dark-accent" target="_blank" href="https://candykeys.com/group-buys/conundrum-ortholinear-keyboard">CandyKeys</a></li>
+    <li>Asia &ndash; <a class="text-dark-accent" target="_blank" href="https://en.zfrontier.com/collections/groupbuy">zFrontier</a></li>
+    <li>North America &ndash; <a class="text-dark-accent" target="_blank" href="https://www.ashkeebs.com/product/conundrum/">Ashkeebs</a></li>
+  </ul>
 </div>
 </template>
