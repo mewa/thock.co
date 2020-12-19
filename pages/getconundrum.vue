@@ -209,7 +209,10 @@ export default {
         '/img/ck/sum/004.jpg',
         '/img/ck/sum/005.jpg',
         '/img/ck/sum/006.jpg',
-        '/img/ck/sum/007.jpg'
+        '/img/ck/sum/007.jpg',
+        '/img/colors-2.jpg',
+        '/img/back-black.jpg',
+        '/img/angle-3.jpg'
       ],
       variant: { cable: { text: "White" }, ...this.$store.state.variant },
       activeTab: 0,
