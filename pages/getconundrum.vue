@@ -4,7 +4,9 @@
     <transition name="fade" appear>
       <div class="main container text-white">
         <h1 class="title">
-          Conundrum
+          <router-link class="header-link" to="/">
+            Conundrum
+          </router-link>
         </h1>
         <h2 class="subtitle">
           a keyboard by <span class="thock">thock.co</span>
@@ -272,6 +274,14 @@ export default {
 <style lang="scss">
 .buy .row {
     margin-bottom: 8px;
+}
+
+.header-link {
+    color: rgba(255, 255, 255, 0.85);
+    &:hover {
+        color: #fff;
+        text-decoration: none;
+    }
 }
 
 .details {
