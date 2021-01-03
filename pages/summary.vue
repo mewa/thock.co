@@ -150,7 +150,7 @@ const specialCountries = ["fo", "ax", "gl"];
 const tntCountries = ["al", "ad", "at", "be", "by", "ba", "bg", "hr", "cy", "me", "cz", "dk", "ee", "fi", "fr", "gi", "gr", "es", "nl", "ie", "is", "xk", "li", "lt", "lu", "lv", "mk", "mt", "md", "mc", "de", "no", "pt", "ru", "ro", "sm", "rs", "sk", "si", "ch", "se", "tr", "ua", "hu", "gb", "it", "dz", "ai", "ag", "sa", "ar", "aw", "au", "bs", "bh", "bd", "bb", "bz", "bm", "bt", "bo", "br", "bn", "cl", "cn", "cw", "dm", "do", "eg", "ec", "ph", "gd", "gy", "gf", "gp", "gt", "ht", "hn", "hk", "in", "id", "il", "jm", "jp", "jo", "ky", "ca", "qa", "co", "kr", "cr", "kw", "la", "lb", "ly", "mo", "my", "ma", "mq", "mx", "mm", "ms", "np", "ni", "nz", "om", "pk", "ps", "pa", "py", "pe", "za", "pr", "bl", "kn", "lc", "mf", "pm", "vc", "sv", "sg", "sx", "lk", "us", "sr", "th", "tw", "tl", "tt", "tn", "uy", "ve", "vn", "vi", "vg", "tc", "ae", "pl"]
       .concat(specialCountries);
 const isEU = (country) => {
-  return ["at", "be", "bg", "hr", "cy", "cz", "dk", "ee", "fi", "fr", "de", "gr", "hu", "ie", "it", "lv", "lt", "lu", "mt", "nl", "pl", "pt", "ro", "sk", "es", "si", "se", "gb", "im", "mc"]
+  return ["at", "be", "bg", "hr", "cy", "cz", "dk", "ee", "fi", "fr", "de", "gr", "hu", "ie", "it", "lv", "lt", "lu", "mt", "nl", "pl", "pt", "ro", "sk", "es", "si", "se", "im", "mc"]
     .includes(country.code.toLowerCase());
 }
 
