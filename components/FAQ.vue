@@ -39,7 +39,7 @@
 
   <ul>
     <li>Europe &ndash; <a class="text-dark-accent" target="_blank" href="https://candykeys.com/group-buys/conundrum-ortholinear-keyboard">CandyKeys</a></li>
-    <li>Asia &ndash; <a class="text-dark-accent" target="_blank" href="https://en.zfrontier.com/collections/groupbuy">zFrontier</a></li>
+    <li>Asia &ndash; <a class="text-dark-accent" target="_blank" href="https://en.zfrontier.com/collections/groupbuy/products/conundrum">zFrontier</a></li>
     <li>North America &ndash; <a class="text-dark-accent" target="_blank" href="https://www.ashkeebs.com/product/conundrum/">Ashkeebs</a></li>
   </ul>
 </div>
