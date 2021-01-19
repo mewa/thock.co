@@ -15,7 +15,7 @@
   <hr/>
 
   <p><em><strong>Q:</strong> When does the Group Buy end?</em></p>
-  <p><strong>A:</strong> We will continue to collect orders for the group buy until January 18th 2021.</p>
+  <p><strong>A:</strong> We will continue to collect orders for the group buy until February 14th 2021.</p>
   <hr/>
 
   <p><em><strong>Q:</strong> What is the expected date of shipment?</em></p>
