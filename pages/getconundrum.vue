@@ -176,6 +176,14 @@
       </b-col>
     </b-row>
 
+    <b-row>
+      <b-col>
+        <div class="video-container">
+<iframe class="video" src="https://www.youtube.com/embed/Ok1KSt52fak?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </b-col>
+    </b-row>
+
     <b-row class="mt-3">
       <b-col>
         <FAQ/>
@@ -277,6 +285,21 @@ export default {
 <style lang="scss">
 .buy .row {
     margin-bottom: 8px;
+}
+
+.video-container {
+    position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .header-link {
