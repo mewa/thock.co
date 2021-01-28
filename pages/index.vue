@@ -42,10 +42,35 @@
       </b-container>
     </transition>
     
-    <b-row align-h="center">
-        <b-button class="mx-auto" size="lg" variant="light-accent" to="/getconundrum">Buy now</b-button>
+    <b-row align-h="center" align-v="center">
+        <b-button size="lg" variant="light-accent" to="/getconundrum">Buy now</b-button>
     </b-row>
   </section>
+
+    <transition name="fade2" appear>
+      <b-container fluid class="mt-5 mb-3">
+        <b-row>
+          <b-col>
+            <h3 class="text-center">Charity auction for The Great Orchestra of Christmas Charity!</h3>
+          </b-col>
+        </b-row>
+      </b-container>
+    </transition>
+
+    <b-row align-h="center" align-v="center">
+      <b-col lg="8" class="text-center">
+        <p>Each year millions of people donate to The Great Orchestra of Christmas Charity. Get your own one-of-a-kind personalized Conundrum kit while supporting public healthcare in Poland.</p>
+      </b-col>
+  </b-row>
+
+    <b-row align-h="center" align-v="center">
+      <b-col cols="12" class="text-center my-4">
+        <b-button class="mx-3" size="lg" variant="light-accent" to="/charity-auction">Bid now</b-button>
+      </b-col>
+      <b-col cols="12" lg="8" class="text-center my-3">
+        <p>Auctions are not your thing? Good news! You can still donate money via our <b-link target="blank" href="https://eskarbonka.wosp.org.pl/7w5p98">eCollection Box</b-link>!</p>
+      </b-col>
+  </b-row>
 
   <section class="container details pt-5">
     <div class="row col-12 justify-content-start text-left">
