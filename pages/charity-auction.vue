@@ -31,69 +31,20 @@
     <b-row align-h="center" class="my-5">
       <b-col cols="auto">
         <div class="bid w-100 px-3 pt-4">
-          <b-row align-h="center" class="mb-3">
+          <b-row align-h="center">
             <b-col cols="auto" class="text-center">
-              <h4>Current bid</h4>
-              <h5><em>{{ bid }} USD</em></h5>
-            </b-col>
-            <!-- <b-col cols="12"> -->
-            <!--   <hr/> -->
-            <!-- </b-col> -->
-          </b-row>
-
-          <b-row align-h="center" v-show="error || success">
-            <b-col>
-              <b-alert variant="success" :show="success">Thank you for bidding!</b-alert>
-              <b-alert variant="danger" :show="error != null" dismissible>{{ error }}</b-alert>
+              <h4>Auction has ended</h4>
+              <h5 class="mb-0"><em>{{ bid }} USD</em></h5>
+              <small>Thank you for participating</small>
             </b-col>
           </b-row>
 
-          <b-row align-h="center" v-if="!success">
-            <b-col sm="auto" style="max-width: 380px;">
-              <b-form-group
-                id="input-group-1"
-                label="Email address:"
-                label-for="email"
-                description="We will use this address to contact you if you win the auction">
-                <b-form-input id="email" type="email" v-model="email" placeholder="me@example.com"></b-form-input>
-              </b-form-group>
-
-              <b-form-group
-                id="input-group-2"
-                label="Your bid:"
-                label-for="bid"
-                :description="`Place a bid of \$${minBid} or more`">
-                <b-input-group append="USD" class="mb-2 mr-sm-2 mb-sm-0" style="max-width: 128px;">
-                  <b-form-input id="bid" v-model="offer" :placeholder="minBid.toString()"></b-form-input>
-                </b-input-group>
-              </b-form-group>
-              <div class="text-center">
-                <b-button class="w-100" variant="light-accent" target="blank" :disabled="success === false || email == null || offer == null || offer < minBid" @click="placeBid">Place bid</b-button>
-              </div>
-            </b-col>
-          </b-row>
-          <!-- <b-row> -->
-          <!--   <b-col> -->
-          <!--     <hr class="my-0 mt-3"/> -->
-          <!--   </b-col> -->
-          <!-- </b-row> -->
           <b-row class="pb-2 mb-3" align-h="center">
             <b-col cols="auto">
-              <small class="text-muted small">Charity auction ends at 11:59pm UTC on Feb 8th 2021</small>
+              <small class="text-muted small">Charity auction ended at 11:59pm UTC on Feb 8th 2021</small>
             </b-col>
           </b-row>
         </div>
-      </b-col>
-    </b-row>
-
-    <b-row align-h="center">
-      <b-col sm="10" class="text-center my-3">
-        Auctions are not your thing? Good news! You can still donate money via our eCollection Box!
-      </b-col>
-    </b-row>
-    <b-row align-h="center">
-      <b-col cols="auto">
-        <b-button class="mx-3" size="lg" variant="light-accent" href="https://eskarbonka.wosp.org.pl/7w5p98" target="blank">Donate</b-button>
       </b-col>
     </b-row>
 
@@ -145,16 +96,12 @@ export default {
   },
   data() {
     return {
-      bid: 124,
+      bid: 500,
       offer: null,
       email: null,
       error: null,
       success: null
     };
-  },
-  async asyncData({ app, store, redirect }) {
-    let prices = await app.$axios.$get(process.env.API_URL + '/auction');
-    return { bid: prices.bid };
   },
   computed: {
     minBid() {
@@ -162,41 +109,7 @@ export default {
     }
   },
   methods: {
-    async placeBid() {
-      this.error = null;
-      this.success = false;
-
-      const offer = parseInt(this.offer);
-      const item = {
-        email: this.email,
-        bid: offer
-      };
-
-let bidPromise = this.$axios.$put(process.env.API_URL + '/auction', item)
-        .then(a => {
-          this.success = true;
-          return offer;
-         })
-        .catch(err => {
-          let currentBid;
-          if (err.response.data && (currentBid = err.response.data.currentBid)) {
-            this.error = 'Current bid has changed';
-            return currentBid;
-          } else {
-            throw err;
-          }
-      })
-      .then(newBid => this.bid = newBid);
-
-      try {
-        this.$ga.event({
-          eventCategory: 'GroupBuy',
-          eventAction: 'charity_auction_bid'
-        });
-      } finally {}
-
-      await bidPromise;
-    }
+    async placeBid() {}
   }
 }
 </script>

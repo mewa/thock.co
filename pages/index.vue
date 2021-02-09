@@ -51,7 +51,7 @@
       <b-container fluid class="mt-5 mb-3">
         <b-row>
           <b-col>
-            <h3 class="text-center">Charity auction for The Great Orchestra of Christmas Charity!</h3>
+            <h3 class="text-center">Charity auction for The Great Orchestra of Christmas Charity has ended</h3>
           </b-col>
         </b-row>
       </b-container>
@@ -65,10 +65,7 @@
 
     <b-row align-h="center" align-v="center">
       <b-col cols="12" class="text-center my-4">
-        <b-button class="mx-3" size="lg" variant="light-accent" to="/charity-auction">Bid now</b-button>
-      </b-col>
-      <b-col cols="12" lg="8" class="text-center my-3">
-        <p>Auctions are not your thing? Good news! You can still donate money via our <b-link target="blank" href="https://eskarbonka.wosp.org.pl/7w5p98">eCollection Box</b-link>!</p>
+        <b-button class="mx-3" variant="light-accent" to="/charity-auction">See results</b-button>
       </b-col>
   </b-row>
 
