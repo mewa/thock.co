@@ -16,158 +16,22 @@
     </svg>
   </header>
 
-  <section class="intro my-5">
-    <transition name="fade2" appear>
-      <div class="container">
-        <h1 class="section-title display-4 w-100 text-center">Meet world's first 40% ortholinear, programmable, electro-capacitive keyboard</h1>
-        <div class="col-lg-8 mx-auto mt-4">
-          Drawing its inspiration from Japanese technology and compact ortholinear keyboards, after two years of prototyping and development, the Conundrum keyboard is finally here.
-        </div>
-      </div>
-    </transition>
-  </section>
-
-  <section class="container my-5 pt-5">
-    <img class="img-fluid" src="/img/conundrum-main.jpg" />
-  </section>
-  
-  <section class="container details py-5">
+  <section class="container py-5">
     <transition name="fade2" appear>
       <b-container fluid class="my-3">
         <b-row>
           <b-col>
-            <h3 class="text-center">The Group Buy is live!</h3>
+            <h2 class="text-center">Group Buy is in progress</h2>
+          </b-col>
+        </b-row>
+        <b-row align-h="center">
+          <b-col cols="6" sm="5" md="4" lg="3">
+            <b-progress class="my-4" variant="light-accent" value="1" max="1" animated></b-progress>
           </b-col>
         </b-row>
       </b-container>
     </transition>
-    
-    <b-row align-h="center" align-v="center">
-        <b-button size="lg" variant="light-accent" to="/getconundrum">Buy now</b-button>
-    </b-row>
   </section>
-
-    <transition name="fade2" appear>
-      <b-container fluid class="mt-5 mb-3">
-        <b-row>
-          <b-col>
-            <h3 class="text-center">Charity auction for The Great Orchestra of Christmas Charity has ended</h3>
-          </b-col>
-        </b-row>
-      </b-container>
-    </transition>
-
-    <b-row align-h="center" align-v="center">
-      <b-col lg="8" class="text-center">
-        <p>Each year millions of people donate to The Great Orchestra of Christmas Charity. Get your own one-of-a-kind personalized Conundrum kit while supporting public healthcare in Poland.</p>
-      </b-col>
-  </b-row>
-
-    <b-row align-h="center" align-v="center">
-      <b-col cols="12" class="text-center my-4">
-        <b-button class="mx-3" variant="light-accent" to="/charity-auction">See results</b-button>
-      </b-col>
-  </b-row>
-
-  <section class="container details pt-5">
-    <div class="row col-12 justify-content-start text-left">
-      <h1 class="section-title display-4 mb-5 pb-3 w-100">Engineered to satisfy the most demanding typists</h1>
-    </div>
-
-    <div class="row mb-4">
-      <b-col cols="12" sm="8">
-        <Carousel id="img-sum" fade class="img-fluid my-4" :images="imagesSummary" />
-      </b-col>
-      <b-col>
-        <h3 class="font-weight-lighter">Electro-capacitive switches with rubber domes in various weights. Bound to make you thock.</h3>
-      </b-col>
-    </div>
-
-    <div class="row my-4">
-      <b-col cols="12" sm="8">
-        <Carousel id="img-backs" fade class="img-fluid my-4" :images="['/img/back-white.jpg', '/img/back-black.jpg']" />
-      </b-col>
-      <b-col>
-        <h3 class="col font-weight-lighter">Sturdy 4-piece construction weighing roughly 1400g in total, resting on four rubber feet. For maximum grip.</h3>
-      </b-col>
-    </div>
-
-    <div class="row my-4">
-      <b-col cols="12" sm="8">
-        <img class="img-fluid my-4" src="/img/conundrum-2.jpg" />
-      </b-col>
-      <b-col>
-        <h3 class="font-weight-lighter">Any layout you like. Fully programmable, based on the QMK firmware.</h3>
-      </b-col>
-    </div>
-
-  </section>
-
-  <section class="container details pt-5">
-    <div class="row col-12 justify-content-start text-left">
-      <h1 class="section-title display-4 mb-5 pb-3 w-100">Extraordinary looks, exceptional typing experience</h1>
-    </div>
-
-    <div class="row my-4">
-      <b-col cols="12" sm="8">
-        <Carousel id="img-colors" fade class="img-fluid my-4" :images="['/img/colors-3.jpg', '/img/colors-2.jpg']" />
-      </b-col>
-      <b-col>
-        <h3 class="font-weight-lighter">Captivating color depth.</h3>
-      </b-col>
-    </div>
-
-    <div class="row my-4">
-      <b-col cols="12" sm="8">
-        <Carousel id="img-weights" fade class="img-fluid my-4" :images="['/img/weight-2.jpg', '/img/weight-1.jpg']" />
-      </b-col>
-      <b-col>
-        <h3 class="font-weight-lighter">Heavy brass weight, mirror polished by hand and PVD coated for extreme durability.</h3>
-      </b-col>
-    </div>
-
-    <div class="row my-4">
-      <b-col cols="12" sm="8">
-        <img class="img-fluid my-4" src="/img/plate.jpg" />
-      </b-col>
-      <b-col>
-        <h3 class="font-weight-lighter">Hand-polished to a luxurious mirror finish, PVD coated brass plate shining through your keycaps.</h3>
-      </b-col>
-    </div>
-
-
-    <div class="row my-4">
-      <b-col cols="12" sm="8">
-        <Carousel id="img-angle" fade class="img-fluid my-4" :images="['/img/angle-1.jpg', '/img/angle-2.jpg', '/img/angle-3.jpg']" />
-      </b-col>
-      <b-col>
-        <h3 class="font-weight-lighter">Gently angled case.</h3>
-      </b-col>
-    </div>
-  </section>
-
-  <section class="container details pt-5">
-    <div class="row col-12 justify-content-start text-left">
-      <h1 class="section-title display-4 mb-5 pb-3 w-100">A handful of renders</h1>
-    </div>
-
-    <div class="row my-4">
-      <b-col cols="12" sm="8">
-        <Carousel id="img-renders" :interval="500" noanim class="img-fluid my-4" :images="rendered" />
-      </b-col>
-      <b-col>
-      </b-col>
-    </div>
-
-    <div class="row my-4">
-      <b-col cols="12" sm="8">
-        <img class="img-fluid my-4" src="/img/renders/back.jpg" />
-      </b-col>
-      <b-col>
-      </b-col>
-    </div>
-  </section>
-
 
   <section class="container details py-5">
     <transition name="fade2" appear>
