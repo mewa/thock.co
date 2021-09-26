@@ -1,9 +1,9 @@
 export default {
+  ssr: false,
   env: {
       'API_URL': process.env.API_URL || (console.log('API_URL must be specified') + process.exit(1)),
       'STRIPE_KEY': process.env.STRIPE_KEY || (console.log('STRIPE_KEY must be specified') + process.exit(2))
   },
-  mode: 'spa',
   /*
   ** Headers of the page
   */
