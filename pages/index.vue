@@ -26,7 +26,12 @@
         </b-row>
         <b-row align-h="center">
           <b-col cols="6" sm="5" md="4" lg="3">
-            <b-progress class="my-4" variant="light-accent" value="1" max="1" animated></b-progress>
+            <b-progress class="my-4" variant="light-accent" :value=progress max="100" animated></b-progress>
+          </b-col>
+        </b-row>
+        <b-row align-h="center">
+          <b-col style="max-width: 560px;">
+            <b-alert variant="warning" show>We expect the earliest units to be shipped no sooner than towards the end of the year, perhaps into early next year.</b-alert>
           </b-col>
         </b-row>
       </b-container>
@@ -62,7 +67,16 @@ export default {
     ]
   },
   data () {
+    const minProgress = 70;
+    const startDate = new Date(2021, 8, 1);
+    const endDate = new Date(2022, 0, 1);
+    const scale = (endDate - startDate) / (100 - minProgress);
+
+    const diffDays = (new Date()  - startDate) / scale;
+    let progress = minProgress + diffDays;
+
     return {
+      progress,
       loaded: false,
       imagesSummary: [
         '/img/ck/sum/004.jpg',
