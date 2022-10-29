@@ -16,7 +16,7 @@
     </svg>
   </header>
 
-  <section class="container py-5">
+  <section class="container py-5 d-none">
     <transition name="fade2" appear>
       <b-container fluid class="my-3">
         <b-row>
@@ -43,7 +43,7 @@
       <b-container fluid class="my-3">
         <b-row>
           <b-col>
-            <h3 class="text-center">Get updates and group buy notifications</h3>
+            <h3 class="text-center">Get keyboard & stock updates</h3>
           </b-col>
         </b-row>
       </b-container>
